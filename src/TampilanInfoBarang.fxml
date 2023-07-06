@@ -15,12 +15,8 @@
             <Image url="@../../../../../../Users/Yasir/Downloads/Screenshot_2023-07-04_082058-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageBarang" fitHeight="332.0" fitWidth="460.0" layoutX="89.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Saved%20Pictures/giphy.gif" />
-         </image>
-      </ImageView>
-      <Label fx:id="labelNamaBarang" layoutX="581.0" layoutY="83.0" prefHeight="36.0" prefWidth="379.0" text="nama barang">
+      <ImageView fx:id="imageBarang" fitHeight="332.0" fitWidth="460.0" layoutX="89.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="labelNamaBarang" layoutX="581.0" layoutY="83.0" prefHeight="38.0" prefWidth="661.0" text="nama barang">
          <font>
             <Font size="26.0" />
          </font>
@@ -33,13 +29,13 @@
       <Label layoutX="923.0" layoutY="122.0" text="Barang dikirim dari" />
       <Label fx:id="labelAlamatPenjual" layoutX="1078.0" layoutY="121.0" text="alamat penjual" />
       <Label layoutX="581.0" layoutY="158.0" text="Deskripsi produk" />
-      <Label layoutX="581.0" layoutY="184.0" prefHeight="156.0" prefWidth="629.0" text="Label" />
+      <Label fx:id="lblDeskripsi" layoutX="581.0" layoutY="184.0" prefHeight="156.0" prefWidth="629.0" text="Label" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="274.0" layoutY="426.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
-      <Button layoutX="922.0" layoutY="360.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="323.0" style="-fx-border-color: ff0000; -fx-background-color: white;" text="NEGO" textFill="RED">
+      <Button fx:id="btnNego" layoutX="922.0" layoutY="360.0" mnemonicParsing="false" onAction="#Nego" prefHeight="43.0" prefWidth="323.0" style="-fx-border-color: ff0000; -fx-background-color: white;" text="NEGO" textFill="RED">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button layoutX="575.0" layoutY="360.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="332.0" style="-fx-background-color: #ff0000;" text="Beli Sekarang" textFill="WHITE">
+      <Button fx:id="btnBeli" layoutX="575.0" layoutY="360.0" mnemonicParsing="false" onAction="#Beli" prefHeight="43.0" prefWidth="332.0" style="-fx-background-color: #ff0000;" text="Beli Sekarang" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>

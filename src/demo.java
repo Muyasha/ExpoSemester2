@@ -13,7 +13,9 @@ public class demo {
 
         // ModelBarang newBarang = new ModelBarang();
         // ModelBarang.setID("2");
-        // dataBarang.add(new ModelBarang("3", "otomotif", "motor", "Rp 70.000.000", "1", "gedhe"));
-        // writer.simpanData(dataBarang, "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
+        // dataBarang.add(new ModelBarang("3", "otomotif", "motor", "Rp 70.000.000",
+        // "1", "gedhe", null));
+        // writer.simpanData(dataBarang, "C://Kuliah//Semester
+        // 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
     }
 }

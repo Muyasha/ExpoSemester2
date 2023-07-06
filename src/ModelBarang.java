@@ -76,8 +76,8 @@ public class ModelBarang {
 
     @Override
     public String toString() {
-        return "ModelBarang [kategori=" + kategori + ", namaBarang=" + namaBarang + ", harga=" + harga + ", stok="
-                + stok + ", deskripsi=" + deskripsi + ", image=" + image + "]";
+        return "ModelBarang [ID=" + ID + ", kategori=" + kategori + ", namaBarang=" + namaBarang + ", harga=" + harga
+                + ", stok=" + stok + ", deskripsi=" + deskripsi + ", image=" + image + "]";
     }
 
     public String getImage() {

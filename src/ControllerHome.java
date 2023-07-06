@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class ControllerHome {
@@ -86,6 +87,21 @@ public class ControllerHome {
     private TextField tfSearch;
 
     @FXML
+    private Pane paneBrng1;
+
+    @FXML
+    private Pane paneBrng2;
+
+    @FXML
+    private Pane paneBrng3;
+
+    @FXML
+    private Pane paneBrng4;
+
+    @FXML
+    private Pane paneBrng5;
+
+    @FXML
     void toBrngELektronik(MouseEvent event) {
         Parent root;
 
@@ -115,6 +131,7 @@ public class ControllerHome {
 
     }
 
+    private int iD;
     private String nama;
     private String namaBarang;
     private String harga;
@@ -157,42 +174,142 @@ public class ControllerHome {
         try {
             File a = new File(dataBarang.get(0).getImage());
             FileInputStream file1 = new FileInputStream(a);
-            Image image = new Image(file1);
-            imgBrng1.setImage(image);
+            Image image1 = new Image(file1);
+            imgBrng1.setImage(image1);
 
-            File a = new File(dataBarang.get(0).getImage());
-            FileInputStream file1 = new FileInputStream(a);
-            Image image = new Image(file1);
-            imgBrng1.setImage(image);
-            // "C:/Users/Yasir/OneDrive/Pictures/Saved Pictures/homer-simpson-homer.gif"
-            // "C:/Users\Yasir\OneDrive\Pictures\Saved Pictures\homer-simpson-homer.gif"
+            File b = new File(dataBarang.get(0).getImage());
+            FileInputStream file2 = new FileInputStream(b);
+            Image image2 = new Image(file2);
+            imgBrng2.setImage(image2);
 
+            File c = new File(dataBarang.get(0).getImage());
+            FileInputStream file3 = new FileInputStream(c);
+            Image image3 = new Image(file3);
+            imgBrng3.setImage(image3);
+
+            File d = new File(dataBarang.get(0).getImage());
+            FileInputStream file4 = new FileInputStream(d);
+            Image image4 = new Image(file4);
+            imgBrng4.setImage(image4);
+
+            File e = new File(dataBarang.get(0).getImage());
+            FileInputStream file5 = new FileInputStream(e);
+            Image image5 = new Image(file5);
+            imgBrng5.setImage(image5);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
 
-        // Image x = new Image(dataImageBarang.get(0));
-        // String File = "\"C:\\Kuliah\\Semester 2\\FPA\\THRIFTSHOP\\Screenshot
-        // 2023-06-30 201301.png\"";
-        // InputStream is = new FileInputStream("C:\\Kuliah\\Semester
-        // 2\\FPA\\THRIFTSHOP\\Screenshot 2023-06-30 201301.png");
-        // String md5;
-        // try {
-        // md5 = UTILS.getMD5Info(is);
-        // } finally {
-        // is.close();
-        // }
+    @FXML
+    void showBrng1(MouseEvent event) {
+        Parent root;
+        iD = 1;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
+            ControllerInfoBarang info = new ControllerInfoBarang(Integer.toString(iD));
+            loader.setController(info);
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
 
-        // File file = new File("\"C:\\Kuliah\\Semester 2\\FPA\\THRIFTSHOP\\Screenshot
-        // 2023-06-30 201301.png\"");
+            stage.setScene(scene);
+            stage.show();
 
-        // ImageView image = new ImageView(file.toURI().toString());
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
-        // Image a = new Image();
+    @FXML
+    void showBrng2(MouseEvent event) {
+        Parent root;
+        iD = 5; 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
+            ControllerInfoBarang info = new ControllerInfoBarang(Integer.toString(iD));
+            loader.setController(info);
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
 
-        // imgBrng1.setImage(a);
+            stage.setScene(scene);
+            stage.show();
 
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void showBrng3(MouseEvent event) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
+            ControllerInfoBarang info = new ControllerInfoBarang(Integer.toString(iD));
+            loader.setController(info);
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void showBrng4(MouseEvent event) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
+            ControllerInfoBarang info = new ControllerInfoBarang(Integer.toString(iD));
+            loader.setController(info);
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void showBrng5(MouseEvent event) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
+            ControllerInfoBarang info = new ControllerInfoBarang(Integer.toString(iD));
+            loader.setController(info);
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @FXML

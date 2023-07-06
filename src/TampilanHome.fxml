@@ -77,9 +77,9 @@
             <Image url="@../../../../../../Users/Yasir/Downloads/file-svg-profile-icon-vector-11562942678pprjdh47a8-removebg-preview%20(1).png" />
          </image>
       </ImageView>
-      <Pane layoutX="60.0" layoutY="480.0" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng1" layoutX="60.0" layoutY="480.0" onMouseClicked="#showBrng1" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng1" layoutX="12.0" layoutY="152.0" maxHeight="20.0" maxWidth="170.0" prefHeight="17.0" prefWidth="155.0" text="Nama Barang">
+            <Label fx:id="nameBrng1" layoutX="14.0" layoutY="152.0" maxHeight="20.0" maxWidth="170.0" prefHeight="17.0" prefWidth="155.0" text="Nama Barang">
                <font>
                   <Font name="Bodoni MT" size="12.0" />
                </font></Label>
@@ -87,9 +87,9 @@
             <ImageView fx:id="imgBrng1" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Pane layoutX="300.0" layoutY="480.0" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng2" layoutX="300.0" layoutY="480.0" onMouseClicked="#showBrng2" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng2" layoutX="14.0" layoutY="152.0" text="Nama Barang">
+            <Label fx:id="nameBrng2" layoutX="14.0" layoutY="152.0" maxHeight="20.0" maxWidth="150.0" prefHeight="16.0" prefWidth="155.0" text="Nama Barang">
                <font>
                   <Font name="Bodoni MT" size="12.0" />
                </font></Label>
@@ -97,9 +97,9 @@
             <ImageView fx:id="imgBrng2" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Pane layoutX="530.0" layoutY="480.0" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng3" layoutX="530.0" layoutY="480.0" onMouseClicked="#showBrng3" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng3" layoutX="14.0" layoutY="143.0" text="Nama Barang">
+            <Label fx:id="nameBrng3" layoutX="14.0" layoutY="153.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
                <font>
                   <Font name="Bodoni MT" size="12.0" />
                </font></Label>
@@ -107,16 +107,22 @@
             <ImageView fx:id="imgBrng3" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Pane layoutX="760.0" layoutY="480.0" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng4" layoutX="760.0" layoutY="480.0" onMouseClicked="#showBrng4" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng4" layoutX="14.0" layoutY="143.0" text="Nama Barang" />
+            <Label fx:id="nameBrng4" layoutX="14.0" layoutY="153.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
+               <font>
+                  <Font name="Bodoni MT" size="12.0" />
+               </font></Label>
             <Label fx:id="hargaBrng4" layoutX="14.0" layoutY="169.0" text="Harga" />
             <ImageView fx:id="imgBrng4" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Pane layoutX="990.0" layoutY="480.0" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng5" layoutX="990.0" layoutY="480.0" onMouseClicked="#showBrng5" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng5" layoutX="14.0" layoutY="143.0" text="Nama Barang" />
+            <Label fx:id="nameBrng5" layoutX="14.0" layoutY="153.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
+               <font>
+                  <Font name="Bodoni MT" size="12.0" />
+               </font></Label>
             <Label fx:id="hargaBrng5" layoutX="14.0" layoutY="169.0" text="Harga" />
             <ImageView fx:id="imgBrng5" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
