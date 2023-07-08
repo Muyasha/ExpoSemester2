@@ -1,5 +1,4 @@
-public class ModelBarang {
-    // atribut barang
+public class ModelPenjualan {
     private int ID;
     private String kategori;
     private String namaBarang;
@@ -7,25 +6,36 @@ public class ModelBarang {
     private String stok;
     private String deskripsi;
     private String image;
-    private String alamat;
 
-    // constructor
-    public ModelBarang() {
+    public ModelPenjualan() {
     }
 
-    public ModelBarang(int ID, String kategori, String namaBarang, String harga, String stok, String deskripsi,
-            String image, String alamat) {
-        this.ID = ID;
+    public ModelPenjualan(int iD, String kategori, String namaBarang, String harga, String stok, String deskripsi,
+            String image) {
+        ID = iD;
         this.kategori = kategori;
         this.namaBarang = namaBarang;
         this.harga = harga;
         this.stok = stok;
         this.deskripsi = deskripsi;
         this.image = image;
-        this.alamat = alamat;
     }
 
-    // getter dan setter
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int iD) {
+        ID = iD;
+    }
+
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
+    }
 
     public String getNamaBarang() {
         return namaBarang;
@@ -59,28 +69,6 @@ public class ModelBarang {
         this.deskripsi = deskripsi;
     }
 
-    public String getKategori() {
-        return kategori;
-    }
-
-    public void setKategori(String kategori) {
-        this.kategori = kategori;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int iD) {
-        this.ID = iD;
-    }
-
-    @Override
-    public String toString() {
-        return "ModelBarang [ID=" + ID + ", kategori=" + kategori + ", namaBarang=" + namaBarang + ", harga=" + harga
-                + ", stok=" + stok + ", deskripsi=" + deskripsi + ", image=" + image + "]";
-    }
-
     public String getImage() {
         return image;
     }
@@ -89,12 +77,10 @@ public class ModelBarang {
         this.image = image;
     }
 
-    public String getAlamat() {
-        return alamat;
-    }
-
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
+    @Override
+    public String toString() {
+        return "ModelPenjualan [ID=" + ID + ", kategori=" + kategori + ", namaBarang=" + namaBarang + ", harga=" + harga
+                + ", stok=" + stok + ", deskripsi=" + deskripsi + ", image=" + image + "]";
     }
 
 }

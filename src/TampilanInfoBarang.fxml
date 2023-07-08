@@ -44,5 +44,9 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
+      <Label layoutX="1144.0" layoutY="149.0" text="Stok" />
+      <Label fx:id="lblStok" layoutX="1179.0" layoutY="149.0" text="Stok" />
+      <Label layoutX="922.0" layoutY="149.0" text="Kategori" />
+      <Label fx:id="lblKategori" layoutX="973.0" layoutY="149.0" text="Kategori" />
    </children>
 </AnchorPane>

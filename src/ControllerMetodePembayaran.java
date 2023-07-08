@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -49,6 +50,12 @@ public class ControllerMetodePembayaran implements Initializable {
     public static String hargaTotal;
     public static int iD;
     public static int stokFinal;
+    public static String nama;
+    public static String alamat;
+
+    CSVWriterPembelian writer = new CSVWriterPembelian();
+    ArrayList<ModelPembelian> dataPembelian = new CSVReaderPembelian()
+            .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,11 +66,19 @@ public class ControllerMetodePembayaran implements Initializable {
     @FXML
     void Bayar(ActionEvent event) {
         Parent root;
+        String id = Integer.toString(dataPembelian.size() + 1);
+        String name = nama;
+        String biaya = hargaTotal;
+        String jumlah = Integer.toString(stokFinal);
+        String asal = alamat;
+
+        dataPembelian.add(new ModelPembelian(id, name, biaya, jumlah, asal));
+        writer.simpanData(dataPembelian, "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanStrukPembelian.fxml"));
             ControllerStrukPembelian struk = new ControllerStrukPembelian();
-            struk.stokFinal =stokFinal;
+            struk.stokFinal = stokFinal;
             struk.hargaTotal = hargaTotal;
             struk.iD = iD;
             root = loader.load();

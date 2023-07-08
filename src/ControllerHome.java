@@ -63,6 +63,8 @@ public class ControllerHome {
     @FXML
     private TextField tfSearch;
     @FXML
+    private Pane paneBecomePenjual;
+    @FXML
     private Pane paneBrng1;
     @FXML
     private Pane paneBrng2;
@@ -79,6 +81,37 @@ public class ControllerHome {
     ArrayList<String> dataHargaBarang = new ArrayList<>();
     ArrayList<String> dataImageBarang = new ArrayList<>();
     ArrayList<Integer> dataIdBarang = new ArrayList<>();
+
+    private int iD;
+    private String nama;
+    private String namaBarang;
+    private String harga;
+
+    ModelUser user;
+    public static String email;
+
+    ArrayList<ModelUser> dataUser = new CSVReader()
+            .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataLogin.csv");
+
+    @FXML
+    void becomePenjual(MouseEvent event) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanTambahBarang.fxml"));
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void toBrngELektronik(MouseEvent event) {
@@ -110,14 +143,6 @@ public class ControllerHome {
 
     }
 
-    private int iD;
-    private String nama;
-    private String namaBarang;
-    private String harga;
-
-    ArrayList<ModelUser> dataUser = new CSVReader()
-            .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataLogin.csv");
-
     public ControllerHome() {
         for (int i = 0; i < dataUser.size(); i++) {
             String eMAIL = dataUser.get(i).getEmail();
@@ -135,9 +160,6 @@ public class ControllerHome {
         }
 
     }
-
-    ModelUser user;
-    public static String email;
 
     public void initialize() {
         for (int i = 0; i < dataUser.size(); i++) {

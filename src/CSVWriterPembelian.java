@@ -4,9 +4,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 // import java.io.File;
 
-public class CSVWriterBarang {
+public class CSVWriterPembelian {
 
-    public void simpanData(ArrayList<ModelBarang> dataBarang, String file) {
+    public void simpanData(ArrayList<ModelPembelian> dataPembelian, String file) {
         String csvFile = file;
         String delimiter = ";"; // Pemisah dalam file CSV
 
@@ -28,14 +28,9 @@ public class CSVWriterBarang {
             // diperlukan
 
             // Menambahkan data mahasiswa ke file CSV
-            for (ModelBarang i : dataBarang) {
-                writer.println(i.getID() + delimiter + i.getKategori() + delimiter + i.getNamaBarang() + delimiter
-                        + i.getHarga() + delimiter + i.getStok() + delimiter + i.getDeskripsi() + delimiter
-                        + i.getImage() + delimiter + i.getAlamat());
-
-                // writer.println(i.getEmail() + delimiter + i.getUsername() + delimiter +
-                // i.getNoHP() + delimiter
-                // + i.getPassword());
+            for (ModelPembelian i : dataPembelian) {
+                writer.println(i.getiD() + delimiter + i.getNamaBarang() + delimiter + i.getBiayaPembelian() + delimiter
+                        + i.getJumlahBeliBarang() + delimiter + i.getAsalBarang());
             }
             // writer.println("1" + delimiter + "John Doe");
             // writer.println("2" + delimiter + "Jane Smith");

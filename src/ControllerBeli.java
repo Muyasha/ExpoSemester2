@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -25,8 +26,6 @@ import javafx.stage.Stage;
 public class ControllerBeli implements Initializable {
 
     @FXML
-    private Rectangle JenisPengiriman;
-    @FXML
     private Pane alamatPengiriman;
     @FXML
     private Button btnBayar;
@@ -34,6 +33,8 @@ public class ControllerBeli implements Initializable {
     private Button btnSetStok;
     @FXML
     private ImageView imgBack;
+    @FXML
+    private ChoiceBox<?> choiceJenisPengiriman;
     @FXML
     private Label lblAlamat1;
     @FXML
@@ -50,6 +51,8 @@ public class ControllerBeli implements Initializable {
     private Label lblJenisPengiriman;
     @FXML
     private Label lblNama;
+    @FXML
+    private Label lblStok;
     @FXML
     private Label lblRinciBiayaPengiriman;
     @FXML
@@ -91,6 +94,7 @@ public class ControllerBeli implements Initializable {
                 lblHarga.setText(barangtemp.getHarga());
                 lblAlamat1.setText(barangtemp.getAlamat());
                 lblAlamat2.setText(barangtemp.getAlamat());
+                lblStok.setText(barangtemp.getStok());
 
                 try {
                     File file = new File(barangtemp.getImage());
@@ -135,6 +139,8 @@ public class ControllerBeli implements Initializable {
             if (hargaFinal != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanMetodePembayaran.fxml"));
                 ControllerMetodePembayaran bayar = new ControllerMetodePembayaran();
+                bayar.nama = barang.getNamaBarang();
+                bayar.alamat = barang.getAlamat();
                 bayar.stokFinal = stokFinal;
                 bayar.iD = iD;
                 bayar.hargaTotal = hargaFinal;

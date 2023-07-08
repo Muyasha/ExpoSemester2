@@ -45,6 +45,12 @@ public class ControllerInfoBarang implements Initializable {
     private Label labelHarga;
 
     @FXML
+    private Label lblKategori;
+
+    @FXML
+    private Label lblStok;
+
+    @FXML
     private Label labelNamaBarang;
 
     @FXML
@@ -59,8 +65,6 @@ public class ControllerInfoBarang implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));
             root = loader.load();
-            // ControllerHome home = new ControllerHome();
-            // loader.setController(home);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
 
@@ -138,6 +142,8 @@ public class ControllerInfoBarang implements Initializable {
                 labelNamaBarang.setText(barangtemp.getNamaBarang());
                 labelHarga.setText(barangtemp.getHarga());
                 lblDeskripsi.setText(barangtemp.getDeskripsi());
+                lblKategori.setText(barangtemp.getKategori());
+                lblStok.setText(barangtemp.getStok());
                 try {
                     File file = new File(barangtemp.getImage());
                     FileInputStream file1;
