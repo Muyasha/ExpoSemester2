@@ -1,20 +1,21 @@
 public class ModelBarang {
     // atribut barang
     // private String image= null;
-    private String ID;
+    private int ID;
     private String kategori;
     private String namaBarang;
     private String harga;
     private String stok;
     private String deskripsi;
     private String image;
+    private String alamat;
 
     // constructor
     public ModelBarang() {
     }
 
-    public ModelBarang(String ID, String kategori, String namaBarang, String harga, String stok, String deskripsi,
-            String image) {
+    public ModelBarang(int ID, String kategori, String namaBarang, String harga, String stok, String deskripsi,
+            String image, String alamat) {
         this.ID = ID;
         this.kategori = kategori;
         this.namaBarang = namaBarang;
@@ -22,6 +23,7 @@ public class ModelBarang {
         this.stok = stok;
         this.deskripsi = deskripsi;
         this.image = image;
+        this.alamat = alamat;
     }
 
     // getter dan setter
@@ -66,11 +68,11 @@ public class ModelBarang {
         this.kategori = kategori;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String iD) {
+    public void setID(int iD) {
         this.ID = iD;
     }
 
@@ -86,6 +88,14 @@ public class ModelBarang {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 
 }

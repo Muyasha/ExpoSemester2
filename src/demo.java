@@ -3,12 +3,11 @@ import java.util.ArrayList;
 public class demo {
     public static void main(String[] args) {
         CSVWriterBarang writer = new CSVWriterBarang();
-        ArrayList<ModelBarang> dataBarang = new CSVReaderBarang()
-                .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
+        ArrayList<ModelAlamat> dataAlamat = new CSVReaderAlamat()
+                .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
 
-        for (ModelBarang i : dataBarang) {
+        for (ModelAlamat i : dataAlamat) {
             System.out.println(i.toString());
-            System.out.println(i.getNamaBarang());
         }
 
         // ModelBarang newBarang = new ModelBarang();

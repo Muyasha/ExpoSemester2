@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="tfNama" layoutX="154.0" layoutY="103.0" prefHeight="25.0" prefWidth="544.0" />
+      <TextField fx:id="tfHarga" layoutX="154.0" layoutY="148.0" prefHeight="25.0" prefWidth="544.0" />
+      <TextField fx:id="tfStok" layoutX="154.0" layoutY="186.0" prefHeight="25.0" prefWidth="544.0" />
+      <ImageView fitHeight="41.0" fitWidth="141.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Users/Yasir/Downloads/Screenshot_2023-07-04_082058-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="56.0" layoutY="107.0" text="Nama" />
+      <Label layoutX="56.0" layoutY="152.0" text="Harga" />
+      <Label layoutX="56.0" layoutY="190.0" text="Stok" />
+      <Label layoutX="800.0" layoutY="107.0" text="Kategori Barang" />
+      <ChoiceBox fx:id="choiceKategori" layoutX="912.0" layoutY="103.0" prefHeight="25.0" prefWidth="275.0" />
+      <TextField fx:id="tfDeskripsi" centerShape="false" layoutX="155.0" layoutY="235.0" prefHeight="157.0" prefWidth="1059.0" />
+      <Label layoutX="56.0" layoutY="239.0" text="Deskripsi" />
+      <Button fx:id="btnJualBarang" layoutX="1134.0" layoutY="614.0" mnemonicParsing="false" onAction="#jualBarang" text="Jual Barang" />
+      <Pane layoutX="14.0" layoutY="441.0" prefHeight="245.0" prefWidth="457.0">
+         <children>
+            <ImageView fx:id="imgBarang" fitHeight="245.0" fitWidth="457.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
