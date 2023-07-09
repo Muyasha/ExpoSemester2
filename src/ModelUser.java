@@ -3,16 +3,18 @@ public class ModelUser {
     private String username;
     private String noHP;
     private String password;
+    private int saldo;
 
     // Constructor
     public ModelUser() {
     }
 
-    public ModelUser(String email, String username, String noHP, String password) {
+    public ModelUser(String email, String username, String noHP, String password,int saldo) {
         this.email = email;
         this.username = username;
         this.noHP = noHP;
         this.password = password;
+        this.saldo = saldo;
     }
 
     // Setter dan getter
@@ -53,6 +55,14 @@ public class ModelUser {
     public String toString() {
         return "ModelUser [email=" + email + ", username=" + username + ", noHP=" + noHP + ", password=" + password
                 + "]";
+    }
+
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
     }
 
 }

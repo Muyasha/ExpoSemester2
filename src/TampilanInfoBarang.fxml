@@ -23,12 +23,21 @@
       </Label>
       <Label fx:id="labelHarga" layoutX="581.0" layoutY="116.0" text="harga">
          <font>
-            <Font size="18.0" />
+            <Font name="Helvetica" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="923.0" layoutY="122.0" text="Barang dikirim dari" />
-      <Label fx:id="labelAlamatPenjual" layoutX="1078.0" layoutY="121.0" text="alamat penjual" />
-      <Label layoutX="581.0" layoutY="158.0" text="Deskripsi produk" />
+      <Label layoutX="923.0" layoutY="122.0" text="Barang dikirim dari">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
+      <Label fx:id="labelAlamatPenjual" layoutX="1078.0" layoutY="121.0" text="alamat penjual">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
+      <Label layoutX="581.0" layoutY="158.0" text="Deskripsi produk">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
       <Label fx:id="lblDeskripsi" layoutX="581.0" layoutY="184.0" prefHeight="156.0" prefWidth="629.0" text="Label" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="274.0" layoutY="426.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
       <Button fx:id="btnNego" layoutX="922.0" layoutY="360.0" mnemonicParsing="false" onAction="#Nego" prefHeight="43.0" prefWidth="323.0" style="-fx-border-color: ff0000; -fx-background-color: white;" text="NEGO" textFill="RED">
@@ -45,8 +54,14 @@
          </font>
       </Label>
       <Label layoutX="1144.0" layoutY="149.0" text="Stok" />
-      <Label fx:id="lblStok" layoutX="1179.0" layoutY="149.0" text="Stok" />
-      <Label layoutX="922.0" layoutY="149.0" text="Kategori" />
-      <Label fx:id="lblKategori" layoutX="973.0" layoutY="149.0" text="Kategori" />
+      <Label fx:id="lblStok" layoutX="1210.0" layoutY="149.0" text="Stok" />
+      <Label layoutX="922.0" layoutY="149.0" text="Kategori">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
+      <Label fx:id="lblKategori" layoutX="1022.0" layoutY="147.0" text="Kategori">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>

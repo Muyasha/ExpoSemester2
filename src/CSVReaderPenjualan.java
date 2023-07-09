@@ -16,15 +16,18 @@ public class CSVReaderPenjualan {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(delimiter);
-                if (data.length == 7) {
-                    int ID = Integer.parseInt(data[0].trim());
-                    String kategori = data[1].trim();
-                    String namaBarang = data[2].trim();
-                    String harga = data[3].trim();
-                    String stok = data[4].trim();
-                    String deskripsi = data[5].trim();
-                    String image = data[6].trim();
-                    ModelPenjualan penjualan = new ModelPenjualan(ID, kategori, namaBarang, harga, stok, deskripsi, image);
+                if (data.length == 8) {
+                    String email = data[0].trim();
+                    int ID = Integer.parseInt(data[1].trim());
+                    String kategori = data[2].trim();
+                    String namaBarang = data[3].trim();
+                    String harga = data[4].trim();
+                    String stok = data[5].trim();
+                    String deskripsi = data[6].trim();
+                    String alamat = data[7].trim();
+                    String image = data[8].trim();
+                    ModelPenjualan penjualan = new ModelPenjualan(email, ID, kategori, namaBarang, harga, stok,
+                            deskripsi, alamat, image);
                     dataPenjualan.add(penjualan);
                 }
             }

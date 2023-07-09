@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -34,7 +36,11 @@ public class ControllerBeli implements Initializable {
     @FXML
     private ImageView imgBack;
     @FXML
-    private ChoiceBox<?> choiceJenisPengiriman;
+    private ChoiceBox<String> choiceJenisPengiriman;
+
+    @FXML
+    private ChoiceBox<String> choiceAlamatPengiriman;
+
     @FXML
     private Label lblAlamat1;
     @FXML
@@ -70,11 +76,22 @@ public class ControllerBeli implements Initializable {
     public ControllerBeli() {
     }
 
+    public static String email;
     public static int iD;
     private ModelBarang barang;
+    String[] daftarJenisPengiriman = new String[] { "Reguler", "Express" };
+    ArrayList<ModelAlamat> daftarAlamat = new CSVReaderAlamat()
+            .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv", email);
+    ArrayList<String> dataAlamat = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        for (int i = 0; i < daftarAlamat.size(); i++) {
+            dataAlamat.add(daftarAlamat.get(i).getAlamat());
+        }
+        choiceAlamatPengiriman.getItems().addAll(dataAlamat);
+        choiceJenisPengiriman.getItems().addAll(daftarJenisPengiriman);
+
         ModelBarang barangtemp = new ModelBarang();
 
         for (int i = 0; i < dataInfoBarang.size(); i++) {
@@ -117,6 +134,8 @@ public class ControllerBeli implements Initializable {
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
+            ControllerInfoBarang.email = email;
+            ControllerInfoBarang.iD = iD;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -139,6 +158,9 @@ public class ControllerBeli implements Initializable {
             if (hargaFinal != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanMetodePembayaran.fxml"));
                 ControllerMetodePembayaran bayar = new ControllerMetodePembayaran();
+                bayar.totalBayar = biaya;
+                bayar.biayaPengiriman = pengiriman;
+                bayar.email = email;
                 bayar.nama = barang.getNamaBarang();
                 bayar.alamat = barang.getAlamat();
                 bayar.stokFinal = stokFinal;
@@ -161,25 +183,27 @@ public class ControllerBeli implements Initializable {
         }
     }
 
-    @FXML
-    void pickAlamatPengiriman(MouseEvent event) {
-
-    }
-
-    @FXML
-    void pickJenisPengiriman(MouseEvent event) {
-
-    }
-
     private int stokFinal;
     private String hargaFinal;
+    String biaya;
+    String pengiriman;
 
     @FXML
     void SetStok(ActionEvent event) {
+
+        String jenisPengiriman = choiceJenisPengiriman.getValue();
         String angka = tfStok.getText();
         String angkaData = dataInfoBarang.get(iD - 1).getStok();
         int stok = Integer.parseInt(angka);
         int stokData = Integer.parseInt(angkaData);
+        int biayaPengiriman;
+        if (jenisPengiriman == null || angka == null || angkaData == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Peringatan");
+            alert.setHeaderText(null);
+            alert.setContentText("Isi informasi terlebih dahulu");
+            alert.showAndWait();
+        }
 
         if (stok <= stokData && stok > 0) {
             stokFinal = stok;
@@ -189,10 +213,34 @@ public class ControllerBeli implements Initializable {
 
             String totalString = Long.toString(hargaTotal);
             hargaFinal = totalString;
-            lblTotalHarga.setText(totalString);
+            lblTotalHarga.setText("Rp " + totalString);
         } else {
-            // kode gagal di set karena stok nggak ada
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Peringatan");
+            alert.setHeaderText(null);
+            alert.setContentText("Stok tidak sesuai");
+            alert.showAndWait();
         }
+        if (jenisPengiriman.equals("Reguler")) {
+            lblJenisPengiriman.setText("Reguler");
+            lblBiayaPengiriman.setText("Rp 10.000");
+            lblRinciBiayaPengiriman.setText("Rp 10.000");
+            biayaPengiriman = 10000;
+        } else {
+            lblJenisPengiriman.setText("Express");
+            lblBiayaPengiriman.setText("Rp 30.000");
+            lblRinciBiayaPengiriman.setText("Rp 30.000");
+            biayaPengiriman = 30000;
+        }
+        pengiriman = String.valueOf(biayaPengiriman);
+
+        int harga = Integer.parseInt(hargaFinal);
+        long biayaTotal = biayaPengiriman + harga;
+        biaya = Long.toString(biayaTotal);
+
+        lblTotalBayar.setText("Rp " + biaya);
+        lblHargaTotal.setText("Rp " + biaya);
+
     }
 
     @FXML

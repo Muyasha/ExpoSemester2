@@ -1,5 +1,4 @@
 public class ModelBarang {
-    // atribut barang
     private int ID;
     private String kategori;
     private String namaBarang;

@@ -63,12 +63,13 @@ public class ControllerTambahAlamat implements Initializable {
         for (int i = 0; i < daftarAlamat.size(); i++) {
 
             String EMAIL = daftarAlamat.get(i).getEmail();
-            String alamat = tfAddAlamat.getText();
+
             if (EMAIL.equals(email)) {
+                String alamat = tfAddAlamat.getText();
                 nomor = nomor + 1;
 
                 tabelView.getItems()
-                        .add(new ModelAlamat(nomor, daftarAlamat.get(i).getAlamat()));
+                        .add(new ModelAlamat(daftarAlamat.get(i).getNomor(), daftarAlamat.get(i).getAlamat()));
             }
 
         }
@@ -87,7 +88,15 @@ public class ControllerTambahAlamat implements Initializable {
         String eMail = email;
         String alamat = tfAddAlamat.getText();
 
-        for (int i = 0; i < daftarAlamat.size(); i++) {
+        for (int i = 0; i <= daftarAlamat.size(); i++) {
+            if (daftarAlamat.isEmpty()) {
+                nomor += 1;
+                daftarAlamat.add(new ModelAlamat(eMail, nomor, alamat));
+                writer.simpanData(daftarAlamat,
+                        "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
+                tfAddAlamat.setText("");
+                break;
+            }
             if (daftarAlamat.get(i).getAlamat().equalsIgnoreCase(alamat)) {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Peringatan");
@@ -98,8 +107,16 @@ public class ControllerTambahAlamat implements Initializable {
             } else {
                 nomor += 1;
                 daftarAlamat.add(new ModelAlamat(eMail, nomor, alamat));
+                writer.simpanData(daftarAlamat,
+                        "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
+
                 break;
             }
+        }
+
+        if (daftarAlamat.isEmpty()) {
+            nomor += 1;
+            daftarAlamat.add(new ModelAlamat(eMail, nomor, alamat));
         }
 
         refresh();
@@ -108,35 +125,44 @@ public class ControllerTambahAlamat implements Initializable {
     @FXML
     void HapusAlamat(ActionEvent event) {
         int nomorHapus = Integer.parseInt(tfHapusAlamat.getText());
-        for (int i = 0; i < daftarAlamat.size(); i++) {
+        for (int i = 0; i <=daftarAlamat.size(); i++) {
             if (nomorHapus == daftarAlamat.get(i).getNomor()) {
                 nomor = cariMahasiswa(nomorHapus);
 
                 // daftarMahasiswa.hapusMahasiswa(indexHapus);
-                hapusMahasiswa(nomor);
+                hapusMahasiswa(nomorHapus-1);
                 refresh();
                 break;
             }
         }
+
     }
 
     @FXML
     void Save(ActionEvent event) {
-        writer.simpanData(daftarAlamat, "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
 
     }
 
     public void refresh() {
-
+        int nomor = 0;
         tabelView.getItems().clear(); // Menghapus semua item dalam tabel
+        for (int i = 0; i < daftarAlamat.size(); i++) {
 
-        // Menambahkan item-item baru dari ArrayList ke tabel
-        tabelView.getItems().addAll(daftarAlamat);
+            String EMAIL = daftarAlamat.get(i).getEmail();
+
+            if (EMAIL.equals(email)) {
+                nomor += 1;
+                String alamat = tfAddAlamat.getText();
+                tabelView.getItems()
+                        .add(new ModelAlamat(daftarAlamat.get(i).getNomor(), daftarAlamat.get(i).getAlamat()));
+            }
+        }
 
     }
 
     public void hapusMahasiswa(int index) {
         daftarAlamat.remove(index);
+        writer.simpanData(daftarAlamat, "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
         // TODO Auto-generated method stub
 
     }

@@ -1,20 +1,24 @@
 public class ModelPembelian {
+    private String email;
     private String iD;
     private String namaBarang;
     private String biayaPembelian;
     private String jumlahBeliBarang;
     private String asalBarang;
+    private String metodeBayar;
 
     public ModelPembelian() {
     }
 
-    public ModelPembelian(String iD, String namaBarang, String biayaPembelian, String jumlahBeliBarang,
-            String asalBarang) {
+    public ModelPembelian(String email, String iD, String namaBarang, String biayaPembelian, String jumlahBeliBarang,
+            String asalBarang, String metodeBayar) {
+        this.email = email;
         this.iD = iD;
         this.namaBarang = namaBarang;
         this.biayaPembelian = biayaPembelian;
         this.jumlahBeliBarang = jumlahBeliBarang;
         this.asalBarang = asalBarang;
+        this.metodeBayar = metodeBayar;
     }
 
     public String getiD() {
@@ -59,8 +63,24 @@ public class ModelPembelian {
 
     @Override
     public String toString() {
-        return "ModelPembelian [iD=" + iD + ", namaBarang=" + namaBarang + ", biayaPembelian=" + biayaPembelian
-                + ", jumlahBeliBarang=" + jumlahBeliBarang + ", asalBarang=" + asalBarang + "]";
+        return "ModelPembelian [email=" + email + ", iD=" + iD + ", namaBarang=" + namaBarang + ", biayaPembelian="
+                + biayaPembelian + ", jumlahBeliBarang=" + jumlahBeliBarang + ", asalBarang=" + asalBarang + "]";
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMetodeBayar() {
+        return metodeBayar;
+    }
+
+    public void setMetodeBayar(String metodeBayar) {
+        this.metodeBayar = metodeBayar;
     }
 
 }

@@ -20,16 +20,37 @@
             <Image url="@../../../../../../Users/Yasir/Downloads/Screenshot_2023-07-04_082058-removebg-preview.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutY="125.0" prefHeight="450.0" prefWidth="1280.0" style="-fx-background-color: white;">
+      <AnchorPane layoutY="125.0" prefHeight="450.0" prefWidth="1251.0" style="-fx-background-color: white;">
          <children>
-            <Label layoutX="875.0" layoutY="68.0" text="Rincian Pembayaran" />
-            <Label layoutX="875.0" layoutY="115.0" text="Total Harga" />
-            <Label layoutX="875.0" layoutY="167.0" text="Biaya Pengiriman" />
-            <Label layoutX="875.0" layoutY="216.0" text="Total" />
+            <Label layoutX="875.0" layoutY="68.0" text="Rincian Pembayaran">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
+            <Label layoutX="875.0" layoutY="115.0" text="Total Harga">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
+            <Label layoutX="875.0" layoutY="167.0" text="Biaya Pengiriman">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
+            <Label layoutX="875.0" layoutY="216.0" text="Total">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
             <Line endX="278.6666259765625" layoutX="975.0" layoutY="198.0" startX="-100.0" />
-            <Label fx:id="lblHarga" layoutX="1169.0" layoutY="115.0" text="harga" />
-            <Label fx:id="lblBiayaPengiriman" layoutX="1169.0" layoutY="167.0" text="biaya pengiriman" />
-            <Label fx:id="lblTotalBiaya" layoutX="1171.0" layoutY="216.0" text="Total biaya" />
+            <Label fx:id="lblHarga" layoutX="1141.0" layoutY="117.0" text="harga">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
+            <Label fx:id="lblBiayaPengiriman" layoutX="1141.0" layoutY="169.0" text="biaya pengiriman">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
+            <Label fx:id="lblTotalBiaya" layoutX="1143.0" layoutY="218.0" text="Total biaya">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
             <Button fx:id="btnBayar" layoutX="966.0" layoutY="342.0" mnemonicParsing="false" onAction="#Bayar" prefHeight="36.0" prefWidth="183.0" style="-fx-background-color: #ff0000;" text="Bayar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -47,8 +68,11 @@
                         <Reflection fraction="0.52" topOpacity="0.51" />
                      </effect>
                   </Rectangle>
-                  <CheckBox fx:id="checkAlfamart" layoutX="21.0" layoutY="20.0" mnemonicParsing="false" />
-                  <Label layoutX="61.0" layoutY="20.0" text="Alfamart" />
+                  <CheckBox fx:id="checkSaldo" layoutX="21.0" layoutY="20.0" mnemonicParsing="false" />
+                  <Label layoutX="61.0" layoutY="20.0" text="Saldo">
+                     <font>
+                        <Font name="Helvetica" size="18.0" />
+                     </font></Label>
                </children>
             </Pane>
             <Pane layoutX="29.0" layoutY="147.0" prefHeight="57.0" prefWidth="728.0">
@@ -58,30 +82,11 @@
                         <Reflection fraction="0.52" topOpacity="0.51" />
                      </effect>
                   </Rectangle>
-                  <CheckBox fx:id="checkIndomaret" layoutX="21.0" layoutY="20.0" mnemonicParsing="false" />
-                  <Label layoutX="61.0" layoutY="20.0" text="Indomaret" />
-               </children>
-            </Pane>
-            <Pane layoutX="29.0" layoutY="255.0" prefHeight="57.0" prefWidth="728.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="728.0">
-                     <effect>
-                        <Reflection fraction="0.52" topOpacity="0.51" />
-                     </effect>
-                  </Rectangle>
-                  <CheckBox fx:id="checkJago" layoutX="21.0" layoutY="20.0" mnemonicParsing="false" />
-                  <Label layoutX="61.0" layoutY="20.0" text="Jago" />
-               </children>
-            </Pane>
-            <Pane layoutX="29.0" layoutY="352.0" prefHeight="57.0" prefWidth="728.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="728.0">
-                     <effect>
-                        <Reflection fraction="0.52" topOpacity="0.51" />
-                     </effect>
-                  </Rectangle>
-                  <CheckBox fx:id="checkBRI" layoutX="21.0" layoutY="20.0" mnemonicParsing="false" />
-                  <Label layoutX="61.0" layoutY="20.0" text="BRI" />
+                  <CheckBox fx:id="checkCOD" layoutX="21.0" layoutY="20.0" mnemonicParsing="false" />
+                  <Label layoutX="61.0" layoutY="20.0" text="COD">
+                     <font>
+                        <Font name="Helvetica" size="18.0" />
+                     </font></Label>
                </children>
             </Pane>
          </children>

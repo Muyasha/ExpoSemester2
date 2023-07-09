@@ -10,8 +10,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -20,8 +22,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class ControllerHome {
-
+public class ControllerHome implements Initializable {
+    @FXML
+    private Button btnSearch;
     @FXML
     private Label hargaBrng1;
     @FXML
@@ -74,6 +77,8 @@ public class ControllerHome {
     private Pane paneBrng4;
     @FXML
     private Pane paneBrng5;
+    @FXML
+    private ImageView profil;
 
     ArrayList<ModelBarang> dataBarang = new CSVReaderBarang()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
@@ -119,7 +124,8 @@ public class ControllerHome {
         Parent root;
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanSignIn.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanSearch.fxml"));
+            ControllerSearch.email = email;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -139,8 +145,8 @@ public class ControllerHome {
         Parent root;
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanTambahAlamat.fxml"));
-            ControllerTambahAlamat.email = email;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanSearch.fxml"));
+            ControllerSearch.email = email;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -157,7 +163,23 @@ public class ControllerHome {
 
     @FXML
     void toBrngRT(MouseEvent event) {
+        Parent root;
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanSearch.fxml"));
+            ControllerSearch.email = email;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public ControllerHome() {
@@ -178,7 +200,7 @@ public class ControllerHome {
 
     }
 
-    public void initialize() {
+    public void initialize(URL location, ResourceBundle resources) {
         for (int i = 0; i < dataUser.size(); i++) {
             ModelUser usertemp = new ModelUser();
             String eMail = dataUser.get(i).getEmail();
@@ -354,6 +376,48 @@ public class ControllerHome {
     }
 
     @FXML
+    void toProfil(MouseEvent event) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanProfil.fxml"));
+            ControllerProfil.email = email;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void toSearch(ActionEvent event) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanSearch.fxml"));
+            ControllerSearch.email = email;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void nonBtnClick(ActionEvent event) {
         ((Parent) event.getSource()).getScene().getWindow().hide();// closecurrentstage
     }
@@ -362,4 +426,5 @@ public class ControllerHome {
     private void nonBtnClick(MouseEvent event) {
         ((Parent) event.getSource()).getScene().getWindow().hide();// closecurrentstage
     }
+
 }

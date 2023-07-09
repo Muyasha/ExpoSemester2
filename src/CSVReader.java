@@ -16,12 +16,13 @@ public class CSVReader {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(delimiter);
-                if (data.length == 4) {
+                if (data.length == 5) {
                     String email = data[0].trim();
                     String nama = data[1].trim();
                     String noHP = data[2].trim();
                     String password = data[3].trim();
-                    ModelUser user = new ModelUser(email, nama, noHP, password);
+                    int saldo = Integer.parseInt(data[4].trim());
+                    ModelUser user = new ModelUser(email, nama, noHP, password, saldo);
                     dataLogin.add(user);
                 }
             }

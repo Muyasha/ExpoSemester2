@@ -29,8 +29,9 @@ public class CSVWriterPembelian {
 
             // Menambahkan data mahasiswa ke file CSV
             for (ModelPembelian i : dataPembelian) {
-                writer.println(i.getiD() + delimiter + i.getNamaBarang() + delimiter + i.getBiayaPembelian() + delimiter
-                        + i.getJumlahBeliBarang() + delimiter + i.getAsalBarang());
+                writer.println(i.getEmail() + delimiter + i.getiD() + delimiter + i.getNamaBarang() + delimiter
+                        + i.getBiayaPembelian() + delimiter
+                        + i.getJumlahBeliBarang() + delimiter + i.getAsalBarang() + delimiter + i.getMetodeBayar());
             }
             // writer.println("1" + delimiter + "John Doe");
             // writer.println("2" + delimiter + "Jane Smith");

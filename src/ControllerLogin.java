@@ -43,8 +43,8 @@ public class ControllerLogin {
         try {
             if (validateLogin(email, password)) {
                 System.out.println("login berhasil");
-                ControllerHome home = new ControllerHome();
-                home.email = email;
+                // ControllerHome home = new ControllerHome();
+                ControllerHome.email = email;
                 // loader.setController(home);
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));

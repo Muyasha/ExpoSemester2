@@ -29,9 +29,10 @@ public class CSVWriterPenjualan {
 
             // Menambahkan data mahasiswa ke file CSV
             for (ModelPenjualan i : dataPenjualan) {
-                writer.println(i.getID() + delimiter + i.getKategori() + delimiter + i.getNamaBarang() + delimiter
+                writer.println(i.getEmail() + delimiter + i.getID() + delimiter + i.getKategori() + delimiter
+                        + i.getNamaBarang() + delimiter
                         + i.getHarga() + delimiter + i.getStok() + delimiter + i.getDeskripsi() + delimiter
-                        + i.getImage());
+                        + i.getAlamat() + delimiter + i.getImage());
             }
             // writer.println("1" + delimiter + "John Doe");
             // writer.println("2" + delimiter + "Jane Smith");

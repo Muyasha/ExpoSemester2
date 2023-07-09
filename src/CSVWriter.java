@@ -30,7 +30,7 @@ public class CSVWriter {
             // Menambahkan data mahasiswa ke file CSV
             for (ModelUser i : dataLogin) {
                 writer.println(i.getEmail() + delimiter + i.getUsername() + delimiter + i.getNoHP() + delimiter
-                        + i.getPassword());
+                        + i.getPassword() + delimiter + i.getSaldo());
             }
             // writer.println("1" + delimiter + "John Doe");
             // writer.println("2" + delimiter + "Jane Smith");

@@ -1,23 +1,27 @@
 public class ModelPenjualan {
+    private String email;
     private int ID;
     private String kategori;
     private String namaBarang;
     private String harga;
     private String stok;
     private String deskripsi;
+    private String alamat;
     private String image;
 
     public ModelPenjualan() {
     }
 
-    public ModelPenjualan(int iD, String kategori, String namaBarang, String harga, String stok, String deskripsi,
-            String image) {
+    public ModelPenjualan(String email, int iD, String kategori, String namaBarang, String harga, String stok,
+            String deskripsi, String alamat, String image) {
+        this.email = email;
         ID = iD;
         this.kategori = kategori;
         this.namaBarang = namaBarang;
         this.harga = harga;
         this.stok = stok;
         this.deskripsi = deskripsi;
+        this.alamat = alamat;
         this.image = image;
     }
 
@@ -77,10 +81,26 @@ public class ModelPenjualan {
         this.image = image;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
     @Override
     public String toString() {
-        return "ModelPenjualan [ID=" + ID + ", kategori=" + kategori + ", namaBarang=" + namaBarang + ", harga=" + harga
-                + ", stok=" + stok + ", deskripsi=" + deskripsi + ", image=" + image + "]";
+        return "ModelPenjualan [email=" + email + ", ID=" + ID + ", kategori=" + kategori + ", namaBarang=" + namaBarang
+                + ", harga=" + harga + ", stok=" + stok + ", deskripsi=" + deskripsi + ", image=" + image + "]";
     }
 
 }

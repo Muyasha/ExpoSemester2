@@ -87,6 +87,7 @@ public class ControllerInfoBarang implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanBeli.fxml"));
             ControllerBeli beli = new ControllerBeli();
+            beli.email = email;
             beli.iD = iD;
             root = loader.load();
             Scene scene = new Scene(root);

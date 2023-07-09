@@ -16,13 +16,15 @@ public class CSVReaderPembelian {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(delimiter);
-                if (data.length == 5) {
-                    String id = data[0].trim();
-                    String nama = data[1].trim();
-                    String harga = data[2].trim();
-                    String jumlah = data[3].trim();
-                    String asal = data[4].trim();
-                    ModelPembelian pembelian = new ModelPembelian(id, nama, harga, jumlah, asal);
+                if (data.length == 7) {
+                    String email = data[0].trim();
+                    String id = data[1].trim();
+                    String nama = data[2].trim();
+                    String harga = data[3].trim();
+                    String jumlah = data[4].trim();
+                    String asal = data[5].trim();
+                    String metodeBayar = data[6].trim();
+                    ModelPembelian pembelian = new ModelPembelian(email, id, nama, harga, jumlah, asal, metodeBayar);
                     dataPembelian.add(pembelian);
                 }
             }
@@ -32,6 +34,6 @@ public class CSVReaderPembelian {
             // return;
         }
 
-        return dataPembelian ;
+        return dataPembelian;
     }
 }

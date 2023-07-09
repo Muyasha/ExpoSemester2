@@ -52,6 +52,7 @@ public class ControllerStrukPembelian implements Initializable {
     ModelBarang barang;
     ArrayList<ModelBarang> dataInfoBarang = new CSVReaderBarang()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
+    public static String harga;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

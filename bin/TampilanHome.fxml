@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,25 +16,9 @@
             <Image url="@../../../../../../Users/Yasir/Downloads/Screenshot_2023-07-04_082058-removebg-preview.png" />
          </image>
       </ImageView>
-      <TextField fx:id="tfSearch" layoutX="256.0" layoutY="20.0" prefHeight="36.0" prefWidth="701.0" />
-      <ImageView fitHeight="35.0" fitWidth="29.0" layoutX="984.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Users/Yasir/Downloads/Screenshot_2023-07-04_084730-removebg-preview.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="30.0" layoutX="1050.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Screenshots/Screenshot%202023-07-04%20085023.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="37.0" layoutX="1118.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Screenshots/Screenshot%202023-07-04%20085258.png" />
-         </image>
-      </ImageView>
       <Label fx:id="labelUsername" layoutX="60.0" layoutY="114.0" text="welcome,">
          <font>
-            <Font size="18.0" />
+            <Font name="Helvetica" size="18.0" />
          </font></Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a0a0a0" height="30.0" layoutX="23.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="168.0" />
       <Label layoutX="29.0" layoutY="70.0" text="Kategori Belanja">
@@ -44,12 +28,12 @@
       </Label>
       <Label fx:id="lblBrngOtomotif" layoutX="717.0" layoutY="71.0" onMouseClicked="#toBrngOtomotif" text="Otomotif">
          <font>
-            <Font size="18.0" />
+            <Font name="Helvetica" size="18.0" />
          </font>
       </Label>
       <Label fx:id="lblBrngRT" layoutX="444.0" layoutY="72.0" onMouseClicked="#toBrngRT" text="Keperluan Rumah Tangga">
          <font>
-            <Font size="18.0" />
+            <Font name="Helvetica" size="18.0" />
          </font>
       </Label>
       <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="680.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
@@ -69,10 +53,10 @@
       </ImageView>
       <Label fx:id="lblBrngElektronik" layoutX="256.0" layoutY="69.0" onMouseClicked="#toBrngELektronik" prefHeight="27.0" prefWidth="149.0" text="Barang Elektronik">
          <font>
-            <Font size="18.0" />
+            <Font name="Helvetica" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="49.0" fitWidth="43.0" layoutX="1192.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="profil" fitHeight="49.0" fitWidth="43.0" layoutX="1170.0" layoutY="17.0" onMouseClicked="#toProfil" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Users/Yasir/Downloads/file-svg-profile-icon-vector-11562942678pprjdh47a8-removebg-preview%20(1).png" />
          </image>
@@ -81,9 +65,12 @@
          <children>
             <Label fx:id="nameBrng1" layoutX="14.0" layoutY="152.0" maxHeight="20.0" maxWidth="170.0" prefHeight="17.0" prefWidth="155.0" text="Nama Barang">
                <font>
-                  <Font name="Bodoni MT" size="12.0" />
+                  <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng1" layoutX="14.0" layoutY="169.0" text="Harga" />
+            <Label fx:id="hargaBrng1" layoutX="14.0" layoutY="169.0" text="Harga">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
             <ImageView fx:id="imgBrng1" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
@@ -91,9 +78,12 @@
          <children>
             <Label fx:id="nameBrng2" layoutX="14.0" layoutY="152.0" maxHeight="20.0" maxWidth="150.0" prefHeight="16.0" prefWidth="155.0" text="Nama Barang">
                <font>
-                  <Font name="Bodoni MT" size="12.0" />
+                  <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng2" layoutX="14.0" layoutY="169.0" text="Harga" />
+            <Label fx:id="hargaBrng2" layoutX="14.0" layoutY="169.0" text="Harga">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
             <ImageView fx:id="imgBrng2" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
@@ -101,9 +91,12 @@
          <children>
             <Label fx:id="nameBrng3" layoutX="14.0" layoutY="153.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
                <font>
-                  <Font name="Bodoni MT" size="12.0" />
+                  <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng3" layoutX="14.0" layoutY="169.0" text="Harga" />
+            <Label fx:id="hargaBrng3" layoutX="14.0" layoutY="169.0" text="Harga">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
             <ImageView fx:id="imgBrng3" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
@@ -111,9 +104,12 @@
          <children>
             <Label fx:id="nameBrng4" layoutX="14.0" layoutY="153.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
                <font>
-                  <Font name="Bodoni MT" size="12.0" />
+                  <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng4" layoutX="14.0" layoutY="169.0" text="Harga" />
+            <Label fx:id="hargaBrng4" layoutX="14.0" layoutY="169.0" text="Harga">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
             <ImageView fx:id="imgBrng4" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
@@ -121,16 +117,23 @@
          <children>
             <Label fx:id="nameBrng5" layoutX="14.0" layoutY="153.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
                <font>
-                  <Font name="Bodoni MT" size="12.0" />
+                  <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng5" layoutX="14.0" layoutY="169.0" text="Harga" />
+            <Label fx:id="hargaBrng5" layoutX="14.0" layoutY="169.0" text="Harga">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
             <ImageView fx:id="imgBrng5" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <Pane layoutX="60.0" layoutY="155.0" prefHeight="295.0" prefWidth="701.0" style="-fx-background-color: a0a0a0;" />
       <Pane fx:id="paneBecomePenjual" layoutX="813.0" layoutY="155.0" onMouseClicked="#becomePenjual" prefHeight="295.0" prefWidth="357.0" style="-fx-background-color: a0a0a0; -fx-background-radius: 20;">
          <children>
-            <Label layoutX="26.0" layoutY="233.0" text="Mari Menjadi Penjual" />
+            <Label layoutX="26.0" layoutY="233.0" text="Mari Menjadi Penjual">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font></Label>
          </children></Pane>
+      <Button fx:id="btnSearch" layoutX="813.0" layoutY="73.0" mnemonicParsing="false" onAction="#toSearch" text="Search" />
    </children>
 </AnchorPane>

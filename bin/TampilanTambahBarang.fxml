@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerTambahBarang">
    <children>
@@ -20,30 +21,59 @@
             <Image url="@../../../../../../Users/Yasir/Downloads/Screenshot_2023-07-04_082058-removebg-preview.png" />
          </image>
       </ImageView>
-      <Label layoutX="56.0" layoutY="107.0" text="Nama" />
-      <Label layoutX="56.0" layoutY="152.0" text="Harga" />
-      <Label layoutX="56.0" layoutY="190.0" text="Stok" />
-      <Label layoutX="800.0" layoutY="107.0" text="Kategori Barang" />
+      <Label layoutX="56.0" layoutY="107.0" text="Nama">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
+      <Label layoutX="56.0" layoutY="147.0" text="Harga">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="55.0" layoutY="188.0" text="Stok">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
+      <Label layoutX="740.0" layoutY="103.0" text="Kategori Barang">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
       <ChoiceBox fx:id="choiceKategori" layoutX="912.0" layoutY="103.0" prefHeight="25.0" prefWidth="275.0" />
       <TextField fx:id="tfDeskripsi" centerShape="false" layoutX="155.0" layoutY="235.0" prefHeight="157.0" prefWidth="1059.0" />
-      <Label layoutX="56.0" layoutY="239.0" text="Deskripsi" />
-      <Button fx:id="btnJualBarang" layoutX="1134.0" layoutY="614.0" mnemonicParsing="false" onAction="#jualBarang" text="Jual Barang" />
+      <Label layoutX="56.0" layoutY="239.0" text="Deskripsi">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
+      <Button fx:id="btnJualBarang" layoutX="1093.0" layoutY="609.0" mnemonicParsing="false" onAction="#jualBarang" text="Jual Barang">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Button>
       <Pane layoutX="154.0" layoutY="451.0" prefHeight="209.0" prefWidth="388.0">
          <children>
             <ImageView fx:id="imgBarang" fitHeight="209.0" fitWidth="388.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <ChoiceBox fx:id="choiceAlamat" layoutX="912.0" layoutY="160.0" prefHeight="25.0" prefWidth="275.0" />
-      <Label layoutX="800.0" layoutY="164.0" text="Alamat" />
-      <HBox layoutX="55.0" layoutY="409.0" prefHeight="31.0" prefWidth="327.0" spacing="40.0">
+      <Label layoutX="740.0" layoutY="160.0" text="Alamat">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
+      <HBox layoutX="55.0" layoutY="409.0" prefHeight="31.0" prefWidth="494.0" spacing="40.0">
          <children>
-            <Label text="Foto Barang" />
-            <Button fx:id="btnInputImage" mnemonicParsing="false" onAction="#InputImage" text="Masukkan foto" />
-            <Button fx:id="btnSaveImage" mnemonicParsing="false" onAction="#SaveImage" text="Simpan foto" />
+            <Label prefHeight="27.0" prefWidth="120.0" text="Foto Barang">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Button fx:id="btnInputImage" mnemonicParsing="false" onAction="#InputImage" prefHeight="25.0" prefWidth="141.0" text="Masukkan foto" />
+            <Button fx:id="btnSaveImage" mnemonicParsing="false" onAction="#SaveImage" prefHeight="25.0" prefWidth="138.0" text="Simpan foto" />
          </children>
       </HBox>
-      <Label layoutX="912.0" layoutY="203.0" text="Belum memiliki alamat?" />
-      <Button fx:id="btnTambahAlamat" layoutX="1059.0" layoutY="199.0" mnemonicParsing="false" onAction="#toTambahAlamat" text="Tambah Alamat" />
+      <Label layoutX="817.0" layoutY="202.0" text="Belum memiliki alamat?">
+         <font>
+            <Font name="Helvetica" size="18.0" />
+         </font></Label>
+      <Button fx:id="btnTambahAlamat" layoutX="1059.0" layoutY="199.0" mnemonicParsing="false" onAction="#toTambahAlamat" text="Tambah Alamat">
+         <font>
+            <Font name="Helvetica" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>
-    
