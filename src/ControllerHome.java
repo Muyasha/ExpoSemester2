@@ -99,6 +99,7 @@ public class ControllerHome {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanTambahBarang.fxml"));
+            ControllerTambahBarang.email = email;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -135,7 +136,23 @@ public class ControllerHome {
 
     @FXML
     void toBrngOtomotif(MouseEvent event) {
+        Parent root;
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanTambahAlamat.fxml"));
+            ControllerTambahAlamat.email = email;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -223,7 +240,7 @@ public class ControllerHome {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
-
+            info.email = email;
             info.iD = 1;
 
             // loader.setController(info);
@@ -247,6 +264,7 @@ public class ControllerHome {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
+            info.email = email;
             info.iD = 2;
             // loader.setController(info);
             root = loader.load();
@@ -270,6 +288,7 @@ public class ControllerHome {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
+            info.email = email;
             info.iD = 3;
             // loader.setController(info);
             root = loader.load();
@@ -293,6 +312,7 @@ public class ControllerHome {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
+            info.email = email;
             info.iD = 4;
             // loader.setController(info);
             root = loader.load();
@@ -316,6 +336,7 @@ public class ControllerHome {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
+            info.email = email;
             info.iD = 5;
             // loader.setController(info);
             root = loader.load();

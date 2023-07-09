@@ -31,6 +31,9 @@ public class ControllerTambahBarang implements Initializable {
     private Button btnSaveImage;
 
     @FXML
+    private Button btnTambahAlamat;
+
+    @FXML
     private ChoiceBox<String> choiceKategori;
 
     @FXML
@@ -53,14 +56,28 @@ public class ControllerTambahBarang implements Initializable {
 
     private File selectedImageFile;
 
+    public static String email;
+
     ArrayList<ModelPenjualan> dataPenjualan = new CSVReaderPenjualan()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPenjualan.csv");
     String[] daftarKategori = new String[] { "Otomotif", "Barang Elektronik", "Barang Rumah Tangga" };
-    ArrayList<String> daftarAlamat = new ArrayList<>();
+    // ArrayList<ModelAlamat> daftarAlamat = new CSVReaderAlamat().readCSVFile(
+    // "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv",
+    // email);
+
+    // ArrayList<String> dataAlamat = new ArrayList<>();
+
+    public ControllerTambahBarang() {
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // for (int i = 0; i < daftarAlamat.size(); i++) {
+        // dataAlamat.add(daftarAlamat.get(i).getAlamat());
+        // }
         choiceKategori.getItems().addAll(daftarKategori);
+        // choiceAlamat.getItems().addAll(dataAlamat);
     }
 
     @FXML
@@ -124,5 +141,10 @@ public class ControllerTambahBarang implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+    void toTambahAlamat(ActionEvent event) {
+
     }
 }

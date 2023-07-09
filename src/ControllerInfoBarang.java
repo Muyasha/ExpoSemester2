@@ -56,6 +56,8 @@ public class ControllerInfoBarang implements Initializable {
     @FXML
     private Label lblDeskripsi;
 
+    public static String email;
+
     ArrayList<ModelBarang> dataInfoBarang = new CSVReaderBarang()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
 
@@ -64,6 +66,7 @@ public class ControllerInfoBarang implements Initializable {
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));
+            ControllerHome.email = email;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();

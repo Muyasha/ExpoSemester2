@@ -29,7 +29,7 @@ public class CSVWriterAlamat {
 
             // Menambahkan data mahasiswa ke file CSV
             for (ModelAlamat i : dataAlamat) {
-                writer.println(i.getEmail() + delimiter + i.getAlamat());
+                writer.println(i.getEmail() + delimiter + i.getNomor() + delimiter + i.getAlamat());
             }
             // writer.println("1" + delimiter + "John Doe");
             // writer.println("2" + delimiter + "Jane Smith");

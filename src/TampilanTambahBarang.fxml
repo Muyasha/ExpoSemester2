@@ -46,3 +46,4 @@
       <Button fx:id="btnTambahAlamat" layoutX="1059.0" layoutY="199.0" mnemonicParsing="false" onAction="#toTambahAlamat" text="Tambah Alamat" />
    </children>
 </AnchorPane>
+    

@@ -128,13 +128,8 @@
          </children>
       </Pane>
       <Pane layoutX="60.0" layoutY="155.0" prefHeight="295.0" prefWidth="701.0" style="-fx-background-color: a0a0a0;" />
-      <Pane fx:id="paneBecomePenjual" layoutX="813.0" layoutY="155.0" onMouseClicked="#becomePenjual" prefHeight="295.0" prefWidth="357.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBecomePenjual" layoutX="813.0" layoutY="155.0" onMouseClicked="#becomePenjual" prefHeight="295.0" prefWidth="357.0" style="-fx-background-color: a0a0a0; -fx-background-radius: 20;">
          <children>
-            <ImageView fitHeight="233.0" fitWidth="357.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Saved%20Pictures/17414-neneng-nurmayant-penjual-sayur-online.jpg" />
-               </image>
-            </ImageView>
             <Label layoutX="26.0" layoutY="233.0" text="Mari Menjadi Penjual" />
          </children></Pane>
    </children>

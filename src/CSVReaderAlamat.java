@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CSVReaderAlamat {
-    public ArrayList<ModelAlamat> readCSVFile(String file) {
+    public ArrayList<ModelAlamat> readCSVFile(String file, String EMAIL) {
         String csvFile = file;
         String delimiter = ";"; // Pemisah dalam file CSV
 
@@ -16,11 +16,14 @@ public class CSVReaderAlamat {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(delimiter);
-                if (data.length == 2) {
+                if (data.length == 3) {
                     String email = data[0].trim();
-                    String alamat = data[1].trim();
-                    ModelAlamat user = new ModelAlamat(email, alamat);
+                    int nomor = Integer.parseInt(data[1].trim());
+                    String alamat = data[2].trim();
+                    ModelAlamat user = new ModelAlamat(email, nomor, alamat);
+
                     dataAlamat.add(user);
+
                 }
             }
         } catch (IOException e) {
