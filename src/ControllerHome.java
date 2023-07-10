@@ -79,6 +79,8 @@ public class ControllerHome implements Initializable {
     private Pane paneBrng5;
     @FXML
     private ImageView profil;
+    @FXML
+    private Pane panetoBarang;
 
     ArrayList<ModelBarang> dataBarang = new CSVReaderBarang()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
@@ -398,6 +400,27 @@ public class ControllerHome implements Initializable {
 
     @FXML
     void toSearch(ActionEvent event) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanSearch.fxml"));
+            ControllerSearch.email = email;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void toBarang(MouseEvent event) {
         Parent root;
 
         try {

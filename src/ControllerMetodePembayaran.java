@@ -139,6 +139,7 @@ public class ControllerMetodePembayaran implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanStrukPembelian.fxml"));
                 ControllerStrukPembelian struk = new ControllerStrukPembelian();
+                struk.email = email;
                 struk.stokFinal = stokFinal;
                 struk.hargaTotal = hargaTotal;
                 struk.iD = iD;

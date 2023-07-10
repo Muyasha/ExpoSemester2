@@ -28,9 +28,8 @@ public class ControllerInfoBarang implements Initializable {
 
     @FXML
     private Button btnBeli;
-
     @FXML
-    private ImageView imgBack;
+    private Button btnBack;
 
     @FXML
     private Button btnNego;
@@ -62,7 +61,7 @@ public class ControllerInfoBarang implements Initializable {
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
 
     @FXML
-    void BacktoHome(MouseEvent event) {
+    void BacktoHome(ActionEvent event) {
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));
@@ -139,6 +138,7 @@ public class ControllerInfoBarang implements Initializable {
                 barangtemp.setHarga("Rp " + dataInfoBarang.get(i).getHarga());
                 barangtemp.setDeskripsi(dataInfoBarang.get(i).getDeskripsi());
                 barangtemp.setStok(dataInfoBarang.get(i).getStok());
+                barangtemp.setAlamat(dataInfoBarang.get(i).getAlamat());
                 barangtemp.setImage(dataInfoBarang.get(i).getImage());
 
                 // dataInfoBarang.add(new ModelBarang(id, kategori, nama, harga, stok,
@@ -148,6 +148,7 @@ public class ControllerInfoBarang implements Initializable {
                 lblDeskripsi.setText(barangtemp.getDeskripsi());
                 lblKategori.setText(barangtemp.getKategori());
                 lblStok.setText(barangtemp.getStok());
+                labelAlamatPenjual.setText(barangtemp.getAlamat());
                 try {
                     File file = new File(barangtemp.getImage());
                     FileInputStream file1;

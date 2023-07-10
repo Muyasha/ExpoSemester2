@@ -6,52 +6,54 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #cbcbcb;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerHome">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="634.0" layoutY="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
       <ImageView fitHeight="55.0" fitWidth="225.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Users/Yasir/Downloads/Screenshot_2023-07-04_082058-removebg-preview.png" />
          </image>
       </ImageView>
-      <Label fx:id="labelUsername" layoutX="60.0" layoutY="114.0" text="welcome,">
+      <Label fx:id="labelUsername" layoutX="60.0" layoutY="76.0" text="Welcome!">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font></Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a0a0a0" height="30.0" layoutX="23.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="168.0" />
-      <Label layoutX="29.0" layoutY="70.0" text="Kategori Belanja">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a0a0a0" height="30.0" layoutX="261.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="168.0" />
+      <Label layoutX="267.0" layoutY="24.0" text="Kategori Belanja">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblBrngOtomotif" layoutX="717.0" layoutY="71.0" onMouseClicked="#toBrngOtomotif" text="Otomotif">
+      <Label fx:id="lblBrngOtomotif" layoutX="903.0" layoutY="25.0" onMouseClicked="#toBrngOtomotif" text="Otomotif">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblBrngRT" layoutX="444.0" layoutY="72.0" onMouseClicked="#toBrngRT" text="Keperluan Rumah Tangga">
+      <Label fx:id="lblBrngRT" layoutX="670.0" layoutY="25.0" onMouseClicked="#toBrngRT" text="Keperluan Rumah Tangga">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="680.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="883.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Screenshots/Screenshot%202023-07-05%20131044.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="411.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="637.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Screenshots/Screenshot%202023-07-05%20131229.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="224.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="444.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Screenshots/Screenshot%202023-07-05%20131304.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblBrngElektronik" layoutX="256.0" layoutY="69.0" onMouseClicked="#toBrngELektronik" prefHeight="27.0" prefWidth="149.0" text="Barang Elektronik">
+      <Label fx:id="lblBrngElektronik" layoutX="480.0" layoutY="25.0" onMouseClicked="#toBrngELektronik" prefHeight="27.0" prefWidth="149.0" text="Barang Elektronik">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font>
@@ -63,7 +65,7 @@
       </ImageView>
       <Pane fx:id="paneBrng1" layoutX="60.0" layoutY="480.0" onMouseClicked="#showBrng1" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng1" layoutX="14.0" layoutY="152.0" maxHeight="20.0" maxWidth="170.0" prefHeight="17.0" prefWidth="155.0" text="Nama Barang">
+            <Label fx:id="nameBrng1" layoutX="13.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0" prefHeight="17.0" prefWidth="155.0" text="Nama Barang">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
@@ -76,7 +78,7 @@
       </Pane>
       <Pane fx:id="paneBrng2" layoutX="300.0" layoutY="480.0" onMouseClicked="#showBrng2" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng2" layoutX="14.0" layoutY="152.0" maxHeight="20.0" maxWidth="150.0" prefHeight="16.0" prefWidth="155.0" text="Nama Barang">
+            <Label fx:id="nameBrng2" layoutX="15.0" layoutY="140.0" maxHeight="20.0" maxWidth="150.0" prefHeight="16.0" prefWidth="155.0" text="Nama Barang">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
@@ -89,7 +91,7 @@
       </Pane>
       <Pane fx:id="paneBrng3" layoutX="530.0" layoutY="480.0" onMouseClicked="#showBrng3" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng3" layoutX="14.0" layoutY="153.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
+            <Label fx:id="nameBrng3" layoutX="14.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
@@ -102,7 +104,7 @@
       </Pane>
       <Pane fx:id="paneBrng4" layoutX="760.0" layoutY="480.0" onMouseClicked="#showBrng4" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng4" layoutX="14.0" layoutY="153.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
+            <Label fx:id="nameBrng4" layoutX="14.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
@@ -115,7 +117,7 @@
       </Pane>
       <Pane fx:id="paneBrng5" layoutX="990.0" layoutY="480.0" onMouseClicked="#showBrng5" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
          <children>
-            <Label fx:id="nameBrng5" layoutX="14.0" layoutY="153.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
+            <Label fx:id="nameBrng5" layoutX="14.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
@@ -126,14 +128,47 @@
             <ImageView fx:id="imgBrng5" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Pane layoutX="60.0" layoutY="155.0" prefHeight="295.0" prefWidth="701.0" style="-fx-background-color: a0a0a0;" />
-      <Pane fx:id="paneBecomePenjual" layoutX="813.0" layoutY="155.0" onMouseClicked="#becomePenjual" prefHeight="295.0" prefWidth="357.0" style="-fx-background-color: a0a0a0; -fx-background-radius: 20;">
+      <Pane fx:id="panetoBarang" layoutX="60.0" layoutY="133.0" onMouseClicked="#toBarang" prefHeight="317.0" prefWidth="701.0" style="-fx-background-color: a0a0a0; -fx-background-radius: 20;">
          <children>
-            <Label layoutX="26.0" layoutY="233.0" text="Mari Menjadi Penjual">
+            <ImageView fitHeight="336.0" fitWidth="750.0" layoutY="-19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Screenshots/Screenshot%202023-07-10%20203918.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="212.0" text="Cari barang bekas berkualitas?" textFill="WHITE">
                <font>
-                  <Font name="Helvetica" size="18.0" />
-               </font></Label>
+                  <Font name="Microsoft Tai Le" size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="269.0" prefHeight="25.0" prefWidth="225.0" text="Coba cek di sini!!" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft Tai Le" size="14.0" />
+               </font>
+            </Label>
+            <Line endX="-83.5" layoutX="239.0" layoutY="282.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="-93.66667175292969" endY="-10.166656494140625" layoutX="249.0" layoutY="292.0" startX="-102.33332824707031" startY="-5.5" stroke="WHITE" />
+            <Line endX="-103.83334350585938" endY="-19.833343505859375" layoutX="259.0" layoutY="302.0" startX="-111.33334350585938" startY="-24.833343505859375" stroke="WHITE" />
          </children></Pane>
-      <Button fx:id="btnSearch" layoutX="813.0" layoutY="73.0" mnemonicParsing="false" onAction="#toSearch" text="Search" />
+      <Pane fx:id="paneBecomePenjual" layoutX="861.0" layoutY="114.0" onMouseClicked="#becomePenjual" prefHeight="336.0" prefWidth="308.0" style="-fx-background-color: a0a0a0; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="336.0" fitWidth="339.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Screenshots/Screenshot%202023-07-10%20204238.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="253.0" text="Punya Barang bekas?" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft Tai Le" size="29.0" />
+               </font></Label>
+            <Label layoutX="14.0" layoutY="296.0" text="Mari jual di sini!!!" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft Tai Le" size="17.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Button fx:id="btnSearch" layoutX="1000.0" layoutY="26.0" mnemonicParsing="false" onAction="#toSearch" style="-fx-background-color: white;" text="Search">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

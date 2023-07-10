@@ -1,28 +1,31 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class ControllerStrukPembelian implements Initializable {
 
     @FXML
-    private Button btnBarangSampai;
+    private Button btnHome;
 
     @FXML
     private ImageView imgBarang;
-    @FXML
-    private ImageView imgBacktoHome;
 
     @FXML
     private Label lblAlamat;
@@ -49,6 +52,7 @@ public class ControllerStrukPembelian implements Initializable {
     public static String hargaTotal;
     public static int iD;
     public static int stokFinal;
+    public static String email;
     ModelBarang barang;
     ArrayList<ModelBarang> dataInfoBarang = new CSVReaderBarang()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
@@ -98,13 +102,34 @@ public class ControllerStrukPembelian implements Initializable {
     }
 
     @FXML
-    void KonfirmasiBarangSampai(ActionEvent event) {
+    void BacktoHome(ActionEvent event) {
+        Parent root;
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));
+            ControllerHome.email = email;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    void BacktoHome(MouseEvent event) {
+    private void nonBtnClick(ActionEvent event) {
+        ((Parent) event.getSource()).getScene().getWindow().hide();// closecurrentstage
+    }
 
+    @FXML
+    private void nonBtnClick(MouseEvent event) {
+        ((Parent) event.getSource()).getScene().getWindow().hide();// closecurrentstage
     }
 
 }

@@ -94,7 +94,7 @@ public class ControllerProfil implements Initializable {
         Parent root;
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanProfil.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));
             ControllerHome.email = email;
             root = loader.load();
             Scene scene = new Scene(root);

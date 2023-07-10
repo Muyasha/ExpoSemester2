@@ -134,6 +134,7 @@ public class ControllerTambahBarang implements Initializable {
 
     @FXML
     void jualBarang(ActionEvent event) {
+
         String EMAIL = email;
         String nama = tfNama.getText();
         String harga = tfHarga.getText();
@@ -150,34 +151,44 @@ public class ControllerTambahBarang implements Initializable {
         int IDBarang = jumlahBarang + 1;
         int ID = jumlahJual + 1;
 
-        dataPenjualan.add(new ModelPenjualan(EMAIL, ID, kategori, nama, harga, stok, deskripsi, alamat, image));
-        writerPenjualan.simpanData(dataPenjualan,
-                "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPenjualan.csv");
+        if (nama == null || harga == null || stok == null || deskripsi == null || kategori == null || alamat == null
+                || image == null || email == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Peringatan");
+            alert.setHeaderText(null);
+            alert.setContentText("Mohon Isi data dengan lengkap");
+            alert.showAndWait();
+        } else {
 
-        int Identitas = nomor + 1;
-        daftarBarang.add(new ModelBarang(IDBarang, kategori, nama, harga, stok, deskripsi, image, alamat));
-        writerBarang.simpanData(daftarBarang,
-                "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
+            dataPenjualan.add(new ModelPenjualan(EMAIL, ID, kategori, nama, harga, stok, deskripsi, alamat, image));
+            writerPenjualan.simpanData(dataPenjualan,
+                    "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPenjualan.csv");
 
-        Parent root;
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
-            ControllerInfoBarang info = new ControllerInfoBarang();
-            info.email = email;
-            info.iD = 1;
+            int Identitas = nomor + 1;
+            daftarBarang.add(new ModelBarang(IDBarang, kategori, nama, harga, stok, deskripsi, image, alamat));
+            writerBarang.simpanData(daftarBarang,
+                    "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
 
-            // loader.setController(info);
-            root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
+            Parent root;
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
+                ControllerInfoBarang info = new ControllerInfoBarang();
+                info.email = email;
+                info.iD = IDBarang;
 
-            stage.setScene(scene);
-            stage.show();
+                // loader.setController(info);
+                root = loader.load();
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
 
-            nonBtnClick(event);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+                stage.setScene(scene);
+                stage.show();
+
+                nonBtnClick(event);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
 
     }

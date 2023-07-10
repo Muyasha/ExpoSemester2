@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerStrukPembelian">
    <children>
-      <ImageView fx:id="imgBacktoHome" fitHeight="36.0" fitWidth="208.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#BacktoHome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="36.0" fitWidth="208.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Users/Yasir/Downloads/Screenshot_2023-07-04_082058-removebg-preview.png" />
          </image>
@@ -54,11 +54,8 @@
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
             <Label fx:id="lblHargaTotal" layoutX="763.0" layoutY="430.0" text="Label" />
-            <Button fx:id="btnBarangSampai" layoutX="950.0" layoutY="457.0" mnemonicParsing="false" onAction="#KonfirmasiBarangSampai" text="Konfirmasi Barang telah sampai">
-               <font>
-                  <Font name="Helvetica" size="18.0" />
-               </font></Button>
          </children>
       </Pane>
+      <Button fx:id="btnHome" layoutX="216.0" layoutY="20.0" mnemonicParsing="false" onAction="#BacktoHome" style="-fx-background-color: white; -fx-border-color: orange;" text="Home" />
    </children>
 </AnchorPane>
