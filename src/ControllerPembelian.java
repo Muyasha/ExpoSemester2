@@ -37,7 +37,8 @@ public class ControllerPembelian implements Initializable {
                         .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
 
         public void initialize(URL location, ResourceBundle resources) {
-                TableColumn<ModelPembelian, String> column0 = new TableColumn<>("Nomor");
+                refresh();
+                TableColumn<ModelPembelian, String> column0 = new TableColumn<>("Email");
                 column0.setCellValueFactory(
                                 new PropertyValueFactory<>("email"));
                 TableColumn<ModelPembelian, String> column1 = new TableColumn<>("Nomor");
@@ -60,6 +61,7 @@ public class ControllerPembelian implements Initializable {
                 column5.setCellValueFactory(
                                 new PropertyValueFactory<>("asalBarang"));
 
+                tableView.getColumns().add(column0);
                 tableView.getColumns().add(column1);
                 tableView.getColumns().add(column2);
                 tableView.getColumns().add(column3);
@@ -98,11 +100,31 @@ public class ControllerPembelian implements Initializable {
         public void refresh() {
                 tableView.getItems().clear(); // Menghapus semua item dalam tabel
                 for (int i = 0; i < dataPembelian.size(); i++) {
-                        tableView.getItems().add(
-                                        dataPembelian.get(i));
+                        String EMAIL = dataPembelian.get(i).getEmail();
+                        if (EMAIL.equals(email)) {
+                                tableView.getItems().add(
+                                                dataPembelian.get(i));
+                        }
+
                 }
 
         }
+
+        public int cariBarang(String namaBarang) {
+                int indexKetemu = -1;
+                for (ModelPembelian i : dataPembelian) {
+                        if (namaBarang.equals(i.getNamaBarang())) {
+                                indexKetemu = dataPembelian.indexOf(i);
+                        }
+                }
+                return indexKetemu;
+        }
+
+        // public void hapusMahasiswa(int idMahasiswa) {
+        // daftarMahasiswa.remove(cariMahasiswa(idMahasiswa));
+        // // TODO Auto-generated method stub
+
+        // }
 
         @FXML
         private void nonBtnClick(ActionEvent event) {
