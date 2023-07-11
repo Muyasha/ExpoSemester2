@@ -138,7 +138,7 @@ public class ControllerTambahBarang implements Initializable {
         String EMAIL = email;
         String nama = tfNama.getText();
         String harga = tfHarga.getText();
-        String stok = tfHarga.getText();
+        String stok = tfStok.getText();
         String deskripsi = tfDeskripsi.getText();
         String kategori = choiceKategori.getValue();
         String alamat = choiceAlamat.getValue();

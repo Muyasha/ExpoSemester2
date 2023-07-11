@@ -94,8 +94,12 @@ public class ControllerPenjualan implements Initializable {
     public void refresh() {
         tableView.getItems().clear(); // Menghapus semua item dalam tabel
         for (int i = 0; i < dataPenjualan.size(); i++) {
-            tableView.getItems().add(
-                    dataPenjualan.get(i));
+            String EMAIL = dataPenjualan.get(i).getEmail();
+            if (EMAIL.equals(email)) {
+                tableView.getItems().add(
+                        dataPenjualan.get(i));
+            }
+
         }
 
     }

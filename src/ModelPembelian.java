@@ -1,6 +1,6 @@
 public class ModelPembelian {
     private String email;
-    private String iD;
+    private String identitas;
     private String namaBarang;
     private String biayaPembelian;
     private String jumlahBeliBarang;
@@ -13,20 +13,12 @@ public class ModelPembelian {
     public ModelPembelian(String email, String iD, String namaBarang, String biayaPembelian, String jumlahBeliBarang,
             String asalBarang, String metodeBayar) {
         this.email = email;
-        this.iD = iD;
+        this.identitas = iD;
         this.namaBarang = namaBarang;
         this.biayaPembelian = biayaPembelian;
         this.jumlahBeliBarang = jumlahBeliBarang;
         this.asalBarang = asalBarang;
         this.metodeBayar = metodeBayar;
-    }
-
-    public String getiD() {
-        return iD;
-    }
-
-    public void setiD(String iD) {
-        this.iD = iD;
     }
 
     public String getNamaBarang() {
@@ -63,8 +55,9 @@ public class ModelPembelian {
 
     @Override
     public String toString() {
-        return "ModelPembelian [email=" + email + ", iD=" + iD + ", namaBarang=" + namaBarang + ", biayaPembelian="
-                + biayaPembelian + ", jumlahBeliBarang=" + jumlahBeliBarang + ", asalBarang=" + asalBarang + "]";
+        return "ModelPembelian [email=" + email + ", identitas=" + identitas + ", namaBarang=" + namaBarang
+                + ", biayaPembelian=" + biayaPembelian + ", jumlahBeliBarang=" + jumlahBeliBarang + ", asalBarang="
+                + asalBarang + ", metodeBayar=" + metodeBayar + "]";
     }
 
     public String getEmail() {
@@ -81,6 +74,14 @@ public class ModelPembelian {
 
     public void setMetodeBayar(String metodeBayar) {
         this.metodeBayar = metodeBayar;
+    }
+
+    public String getIdentitas() {
+        return identitas;
+    }
+
+    public void setIdentitas(String identitas) {
+        this.identitas = identitas;
     }
 
 }

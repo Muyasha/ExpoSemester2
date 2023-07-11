@@ -38,12 +38,12 @@ public class ControllerPembelian implements Initializable {
 
         public void initialize(URL location, ResourceBundle resources) {
                 refresh();
-                TableColumn<ModelPembelian, String> column0 = new TableColumn<>("Email");
-                column0.setCellValueFactory(
-                                new PropertyValueFactory<>("email"));
+                // TableColumn<ModelPembelian, String> column0 = new TableColumn<>("Email");
+                // column0.setCellValueFactory(
+                // new PropertyValueFactory<>("email"));
                 TableColumn<ModelPembelian, String> column1 = new TableColumn<>("Nomor");
                 column1.setCellValueFactory(
-                                new PropertyValueFactory<>("iD"));
+                                new PropertyValueFactory<>("identitas"));
 
                 TableColumn<ModelPembelian, String> column2 = new TableColumn<>("Nama Barang");
                 column2.setCellValueFactory(
@@ -60,20 +60,31 @@ public class ControllerPembelian implements Initializable {
                 TableColumn<ModelPembelian, String> column5 = new TableColumn<>("asal");
                 column5.setCellValueFactory(
                                 new PropertyValueFactory<>("asalBarang"));
+                TableColumn<ModelPembelian, String> column6 = new TableColumn<>("Metode Bayar");
+                column6.setCellValueFactory(
+                                new PropertyValueFactory<>("metodeBayar"));
 
-                tableView.getColumns().add(column0);
+                // tableView.getColumns().add(column0);
                 tableView.getColumns().add(column1);
                 tableView.getColumns().add(column2);
                 tableView.getColumns().add(column3);
                 tableView.getColumns().add(column4);
                 tableView.getColumns().add(column5);
+                tableView.getColumns().add(column6);
 
                 refresh();
 
         }
 
+        CSVWriterPembelian writerPembelian = new CSVWriterPembelian();
+
         @FXML
         void Konfirmasi(ActionEvent event) {
+                String nomor = tfKonfirmasi.getText();
+                hapusBarang(nomor);
+                writerPembelian.simpanData(dataPembelian,
+                                "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
+                refresh();
 
         }
 
@@ -110,21 +121,21 @@ public class ControllerPembelian implements Initializable {
 
         }
 
-        public int cariBarang(String namaBarang) {
+        public int cariBarang(String nomorBarang) {
                 int indexKetemu = -1;
                 for (ModelPembelian i : dataPembelian) {
-                        if (namaBarang.equals(i.getNamaBarang())) {
+                        if (nomorBarang.equals(i.getIdentitas())) {
                                 indexKetemu = dataPembelian.indexOf(i);
                         }
                 }
                 return indexKetemu;
         }
 
-        // public void hapusMahasiswa(int idMahasiswa) {
-        // daftarMahasiswa.remove(cariMahasiswa(idMahasiswa));
-        // // TODO Auto-generated method stub
+        public void hapusBarang(String idMahasiswa) {
+                dataPembelian.remove(cariBarang(idMahasiswa));
+                // TODO Auto-generated method stub
 
-        // }
+        }
 
         @FXML
         private void nonBtnClick(ActionEvent event) {

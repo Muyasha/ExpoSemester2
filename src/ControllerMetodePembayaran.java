@@ -64,19 +64,26 @@ public class ControllerMetodePembayaran implements Initializable {
     }
 
     public static String email;
+    public static String stokSisa;
+    String iniEmail;
+
     String metodePembayaran;
     ArrayList<ModelUser> dataUser = new CSVReader()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataLogin.csv");
+    ArrayList<ModelBarang> dataBarang = new CSVReaderBarang()
+            .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
 
     @FXML
     void Bayar(ActionEvent event) {
         Parent root;
         String EMAIL = email;
+        iniEmail = email;
         String id = Integer.toString(dataPembelian.size() + 1);
         String name = nama;
         String biaya = totalBayar;
         String jumlah = Integer.toString(stokFinal);
         String asal = alamat;
+
         int uang = 0;
         int totalBiaya = Integer.parseInt(biaya);
 
@@ -96,9 +103,11 @@ public class ControllerMetodePembayaran implements Initializable {
             metodePembayaran = "Saldo";
             if (uang > totalBiaya) {
                 int kembalian = uang - totalBiaya;
+                String kembalians = Integer.toString(kembalian);
                 for (int i = 0; i < dataUser.size(); i++) {
                     String eMAIL = dataUser.get(i).getEmail();
                     if (eMAIL.equals(email)) {
+
                         dataUser.get(i).setSaldo(kembalian);
                         dataPembelian.add(new ModelPembelian(EMAIL, id, name, biaya, jumlah, asal, metodePembayaran));
                         writer.simpanData(dataPembelian,
@@ -106,6 +115,7 @@ public class ControllerMetodePembayaran implements Initializable {
                         try {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanStrukPembelian.fxml"));
                             ControllerStrukPembelian struk = new ControllerStrukPembelian();
+                            struk.EMAIL = iniEmail;
                             struk.stokFinal = stokFinal;
                             struk.hargaTotal = hargaTotal;
                             struk.iD = iD;
@@ -137,9 +147,10 @@ public class ControllerMetodePembayaran implements Initializable {
             writer.simpanData(dataPembelian,
                     "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
             try {
+                System.out.println(iniEmail);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanStrukPembelian.fxml"));
                 ControllerStrukPembelian struk = new ControllerStrukPembelian();
-                struk.EMAIL = EMAIL;
+                struk.EMAIL = iniEmail;
                 struk.stokFinal = stokFinal;
                 struk.hargaTotal = hargaTotal;
                 struk.iD = iD;

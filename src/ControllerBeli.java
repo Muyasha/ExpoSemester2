@@ -158,6 +158,7 @@ public class ControllerBeli implements Initializable {
             if (hargaFinal != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanMetodePembayaran.fxml"));
                 ControllerMetodePembayaran bayar = new ControllerMetodePembayaran();
+                
                 bayar.totalBayar = biaya;
                 bayar.biayaPengiriman = pengiriman;
                 bayar.email = email;
@@ -183,10 +184,11 @@ public class ControllerBeli implements Initializable {
         }
     }
 
-    private int stokFinal;
-    private String hargaFinal;
+    int stokFinal;
+    String hargaFinal;
     String biaya;
     String pengiriman;
+    int stokBeli;
 
     @FXML
     void SetStok(ActionEvent event) {
@@ -207,13 +209,22 @@ public class ControllerBeli implements Initializable {
 
         if (stok <= stokData && stok > 0) {
             stokFinal = stok;
-            String hargaString = dataInfoBarang.get(iD - 1).getHarga();
-            int hargaint = Integer.parseInt(hargaString);
-            long hargaTotal = stokFinal * hargaint;
+            String hargaString;
+            int hargaint;
+            long hargaTotal;
+            for (int i = 0; i < dataInfoBarang.size(); i++) {
+                if (iD == dataInfoBarang.get(i).getID()) {
+                    String harga = dataInfoBarang.get(i).getHarga();
+                    hargaString = harga;
+                    hargaint = Integer.parseInt(hargaString);
+                    hargaTotal = stokFinal * hargaint;
+                    String totalString = Long.toString(hargaTotal);
+                    hargaFinal = totalString;
+                    lblTotalHarga.setText("Rp " + totalString);
+                }
 
-            String totalString = Long.toString(hargaTotal);
-            hargaFinal = totalString;
-            lblTotalHarga.setText("Rp " + totalString);
+            }
+
         } else {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Peringatan");

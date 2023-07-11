@@ -107,6 +107,8 @@ public class ControllerInfoBarang implements Initializable {
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanNegoBarang.fxml"));
+            ControllerNegoBarang.email = email;
+            ControllerNegoBarang.iD = iD;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();

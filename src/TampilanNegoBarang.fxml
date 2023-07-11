@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #cbcbcb;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #cbcbcb;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerNegoBarang">
    <children>
       <ImageView fitHeight="36.0" fitWidth="208.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,12 +22,12 @@
             <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Saved%20Pictures/giphy.gif" />
          </image>
       </ImageView>
-      <Label fx:id="labelNamaBarang" layoutX="581.0" layoutY="72.0" prefHeight="36.0" prefWidth="379.0" text="nama barang">
+      <Label fx:id="labelNamaBarang" layoutX="581.0" layoutY="83.0" prefHeight="36.0" prefWidth="379.0" text="nama barang">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label fx:id="labelHarga" layoutX="581.0" layoutY="116.0" text="harga">
+      <Label fx:id="labelHarga" layoutX="581.0" layoutY="144.0" text="harga">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font>
@@ -40,46 +40,55 @@
          <font>
             <Font name="Helvetica" size="18.0" />
          </font></Label>
-      <Label layoutX="581.0" layoutY="158.0" text="Deskripsi produk">
+      <Label layoutX="572.0" layoutY="322.0" text="Deskripsi produk">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font></Label>
-      <Label layoutX="581.0" layoutY="184.0" prefHeight="156.0" prefWidth="629.0" text="Label" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="274.0" layoutY="426.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
-      <Button layoutX="922.0" layoutY="360.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="323.0" style="-fx-border-color: ff0000; -fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5;" text="Kolom Diskusi" textFill="RED">
+      <Label fx:id="lblDeskripsi" layoutX="581.0" layoutY="351.0" prefHeight="206.0" prefWidth="629.0" text="Label">
          <font>
-            <Font name="System Bold" size="15.0" />
-         </font></Button>
-      <Button layoutX="575.0" layoutY="360.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="332.0" style="-fx-background-color: #ff0000; -fx-background-radius: 5;" text="Beli Sekarang" textFill="WHITE">
+            <Font size="18.0" />
+         </font></Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="99.0" layoutY="601.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+      <Button fx:id="btnBeli" layoutX="39.0" layoutY="631.0" mnemonicParsing="false" onAction="#Beli" prefHeight="43.0" prefWidth="490.0" style="-fx-background-color: #ff0000; -fx-background-radius: 5;" text="Beli Sekarang" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Label layoutX="89.0" layoutY="434.0" text="Nego">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="200.0" layoutX="89.0" layoutY="472.0" stroke="BLACK" strokeType="INSIDE" width="661.0" />
-      <ImageView fx:id="imageBarang1" fitHeight="126.0" fitWidth="270.0" layoutX="106.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Saved%20Pictures/giphy.gif" />
-         </image>
-      </ImageView>
-      <TextField layoutX="839.0" layoutY="505.0" prefHeight="25.0" prefWidth="370.0" />
-      <Text layoutX="839.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Masukkan harga nego kamu">
+      <TextField fx:id="tfNego" layoutX="613.0" layoutY="640.0" prefHeight="25.0" prefWidth="370.0" />
+      <Text layoutX="613.0" layoutY="629.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Masukkan harga nego kamu">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="816.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rp">
+      <Text layoutX="570.0" layoutY="660.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rp">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Button layoutX="1023.0" layoutY="635.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 7; -fx-border-color: #ff0000; -fx-border-radius: 7; -fx-background-color: white;" text="Ajukan" textFill="RED">
+      <Button fx:id="btnAjukan" layoutX="1023.0" layoutY="635.0" mnemonicParsing="false" onAction="#AjukanNego" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 7; -fx-border-color: #ff0000; -fx-border-radius: 7; -fx-background-color: white;" text="Ajukan" textFill="RED">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
+      <Button fx:id="btnHome" layoutX="189.0" layoutY="20.0" mnemonicParsing="false" onAction="#toHome" text="Home" />
+      <Label layoutX="581.0" layoutY="191.0" text="Kategori">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblKategori" layoutX="684.0" layoutY="191.0" text="Kategori">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="579.0" layoutY="240.0" text="Stok">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblStok" layoutX="681.0" layoutY="240.0" text="Stok">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

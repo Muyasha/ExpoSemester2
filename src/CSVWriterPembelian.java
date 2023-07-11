@@ -29,7 +29,7 @@ public class CSVWriterPembelian {
 
             // Menambahkan data mahasiswa ke file CSV
             for (ModelPembelian i : dataPembelian) {
-                writer.println(i.getEmail() + delimiter + i.getiD() + delimiter + i.getNamaBarang() + delimiter
+                writer.println(i.getEmail() + delimiter + i.getIdentitas() + delimiter + i.getNamaBarang() + delimiter
                         + i.getBiayaPembelian() + delimiter
                         + i.getJumlahBeliBarang() + delimiter + i.getAsalBarang() + delimiter + i.getMetodeBayar());
             }
