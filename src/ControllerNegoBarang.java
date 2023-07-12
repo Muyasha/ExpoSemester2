@@ -102,9 +102,12 @@ public class ControllerNegoBarang implements Initializable {
     public ControllerNegoBarang() {
 
     }
-
+    CSVWriterNego writerNego = new CSVWriterNego();
+    ArrayList<ModelNego> dataNego = new CSVReaderNego().readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataNego.csv");
     @FXML
     void AjukanNego(ActionEvent event) {
+        String hargaNegoS= tfNego.getText();
+        int hargaNegoInt= Integer.parseInt(hargaNegoS);
 
     }
 

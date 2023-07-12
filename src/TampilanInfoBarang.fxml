@@ -44,7 +44,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btnBeli" layoutX="29.0" layoutY="642.0" mnemonicParsing="false" onAction="#Beli" prefHeight="43.0" prefWidth="610.0" style="-fx-background-color: #ff0000;" text="Beli Sekarang" textFill="WHITE">
+      <Button fx:id="btnBeli" layoutX="29.0" layoutY="642.0" mnemonicParsing="false" onAction="#Beli" prefHeight="43.0" prefWidth="1229.0" style="-fx-background-color: #ff0000;" text="Beli Sekarang" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
