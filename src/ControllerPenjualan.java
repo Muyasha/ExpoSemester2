@@ -28,7 +28,7 @@ public class ControllerPenjualan implements Initializable {
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPenjualan.csv");
 
     public void initialize(URL location, ResourceBundle resources) {
-
+        refresh();
         TableColumn<ModelPenjualan, String> column0 = new TableColumn<>("ID");
         column0.setCellValueFactory(
                 new PropertyValueFactory<>("ID"));
@@ -52,6 +52,7 @@ public class ControllerPenjualan implements Initializable {
         column5.setCellValueFactory(
                 new PropertyValueFactory<>("alamat"));
 
+        tableView.getColumns().add(column0);
         tableView.getColumns().add(column1);
         tableView.getColumns().add(column2);
         tableView.getColumns().add(column3);
@@ -65,8 +66,8 @@ public class ControllerPenjualan implements Initializable {
     void back(ActionEvent event) {
         Parent root;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));
-            ControllerHome.email = email;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanProfil.fxml"));
+            ControllerProfil.email = email;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();

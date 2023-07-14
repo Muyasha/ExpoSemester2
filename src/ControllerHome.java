@@ -26,6 +26,8 @@ public class ControllerHome implements Initializable {
     @FXML
     private Button btnSearch;
     @FXML
+    private Button btntoProfil;
+    @FXML
     private Label hargaBrng1;
     @FXML
     private Label hargaBrng2;
@@ -378,7 +380,7 @@ public class ControllerHome implements Initializable {
     }
 
     @FXML
-    void toProfil(MouseEvent event) {
+    void toProfil(ActionEvent event) {
         Parent root;
 
         try {

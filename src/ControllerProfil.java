@@ -74,7 +74,7 @@ public class ControllerProfil implements Initializable {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanPenjualan.fxml"));
-            ControllerHome.email = email;
+            ControllerPenjualan.email = email;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();

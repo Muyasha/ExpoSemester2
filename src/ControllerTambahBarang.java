@@ -40,6 +40,9 @@ public class ControllerTambahBarang implements Initializable {
     private Button btnTambahAlamat;
 
     @FXML
+    private Button btntoHome;
+
+    @FXML
     private Label pathImage;
 
     @FXML
@@ -63,8 +66,6 @@ public class ControllerTambahBarang implements Initializable {
     @FXML
     private TextField tfStok;
 
-    private File selectedImageFile;
-
     public static String email;
 
     String[] daftarKategori = new String[] { "Otomotif", "Barang Elektronik", "Barang Rumah Tangga" };
@@ -87,6 +88,9 @@ public class ControllerTambahBarang implements Initializable {
         choiceKategori.getItems().addAll(daftarKategori);
         choiceAlamat.getItems().addAll(dataAlamat);
     }
+
+    private String imagePath;
+    private File selectedImageFile;
 
     @FXML
     void InputImage(ActionEvent event) {
@@ -209,8 +213,6 @@ public class ControllerTambahBarang implements Initializable {
         alert.showAndWait();
     }
 
-    private String imagePath;
-
     public String getImagePath() {
         return imagePath;
     }
@@ -222,6 +224,27 @@ public class ControllerTambahBarang implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanTambahAlamat.fxml"));
             ControllerTambahAlamat.email = email;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void toHome(ActionEvent event) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));
+            ControllerHome.email = email;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();

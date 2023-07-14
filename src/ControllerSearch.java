@@ -35,9 +35,6 @@ public class ControllerSearch implements Initializable {
     @FXML
     private TableView<ModelBarang> tableView;
 
-    @FXML
-    private TextField tfPick;
-
     String[] kategori = new String[] { "Barang Elektronik", "Otomotif", "Barang Rumah tangga" };
     ArrayList<ModelBarang> dataBarang = new CSVReaderBarang()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
@@ -110,15 +107,13 @@ public class ControllerSearch implements Initializable {
 
     @FXML
     void pick(ActionEvent event) {
-        String nama = tfPick.getText();
+        int selectedID = tableView.getSelectionModel().getSelectedIndex();
+        int id = dataBarang.get(selectedID).getID();
 
         for (int i = 0; i < dataBarang.size(); i++) {
-            String namaBarang = dataBarang.get(i).getNamaBarang();
-            int id = dataBarang.get(i).getID();
-            if (nama.equalsIgnoreCase(namaBarang)) {
-
+            int identitas = dataBarang.get(i).getID();
+            if (id == identitas) {
                 Parent root;
-
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
                     ControllerInfoBarang info = new ControllerInfoBarang();
@@ -144,20 +139,20 @@ public class ControllerSearch implements Initializable {
     @FXML
     void search(ActionEvent event) {
         String katag = choiceKategori.getValue();
-        if (katag.equals("Barang Elektronik")) {
+        if (katag.equalsIgnoreCase("Barang Elektronik")) {
             tableView.getItems().clear(); // Menghapus semua item dalam tabel
             for (int i = 0; i < dataBarang.size(); i++) {
-                if (katag.equals(dataBarang.get(i).getKategori())) {
+                if (katag.equalsIgnoreCase(dataBarang.get(i).getKategori())) {
                     tableView.getItems().add(
                             dataBarang.get(i));
                 }
 
             }
 
-        } else if (katag.equals("Otomotif")) {
+        } else if (katag.equalsIgnoreCase("Otomotif")) {
             tableView.getItems().clear(); // Menghapus semua item dalam tabel
             for (int i = 0; i < dataBarang.size(); i++) {
-                if (katag.equals(dataBarang.get(i).getKategori())) {
+                if (katag.equalsIgnoreCase(dataBarang.get(i).getKategori())) {
                     tableView.getItems().add(
                             dataBarang.get(i));
                 }
@@ -165,7 +160,7 @@ public class ControllerSearch implements Initializable {
         } else {
             tableView.getItems().clear(); // Menghapus semua item dalam tabel
             for (int i = 0; i < dataBarang.size(); i++) {
-                if (katag.equals(dataBarang.get(i).getKategori())) {
+                if (katag.equalsIgnoreCase(dataBarang.get(i).getKategori())) {
                     tableView.getItems().add(
                             dataBarang.get(i));
                 }

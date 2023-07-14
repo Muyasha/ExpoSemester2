@@ -37,16 +37,10 @@ public class ControllerTambahAlamat implements Initializable {
     private TableColumn<ModelAlamat, String> tabelAlamat;
 
     @FXML
-    private TableColumn<ModelAlamat, String> tabelNomor;
-
-    @FXML
     private TableView<ModelAlamat> tabelView;
 
     @FXML
     private TextField tfAddAlamat;
-
-    @FXML
-    private TextField tfHapusAlamat;
 
     int nomor = 0;
 
@@ -56,9 +50,9 @@ public class ControllerTambahAlamat implements Initializable {
     ArrayList<ModelUser> daftarUser = new CSVReader()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataLogin.csv");
 
-    public void initialize(URL location, ResourceBundle resources) {
+    ReorderAlamat order = new ReorderAlamat(email);
 
-        tabelNomor.setCellValueFactory(new PropertyValueFactory<>("nomor"));
+    public void initialize(URL location, ResourceBundle resources) {
         tabelAlamat.setCellValueFactory(new PropertyValueFactory<>("alamat"));
         for (int i = 0; i < daftarAlamat.size(); i++) {
 
@@ -94,7 +88,6 @@ public class ControllerTambahAlamat implements Initializable {
                 daftarAlamat.add(new ModelAlamat(eMail, nomor, alamat));
                 writer.simpanData(daftarAlamat,
                         "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
-                tfAddAlamat.setText("");
                 break;
             }
             if (daftarAlamat.get(i).getAlamat().equalsIgnoreCase(alamat)) {
@@ -109,7 +102,6 @@ public class ControllerTambahAlamat implements Initializable {
                 daftarAlamat.add(new ModelAlamat(eMail, nomor, alamat));
                 writer.simpanData(daftarAlamat,
                         "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
-
                 break;
             }
         }
@@ -118,23 +110,37 @@ public class ControllerTambahAlamat implements Initializable {
             nomor += 1;
             daftarAlamat.add(new ModelAlamat(eMail, nomor, alamat));
         }
-
+        tfAddAlamat.setText("");
         refresh();
     }
 
+    int identitas = 0;
+
     @FXML
     void HapusAlamat(ActionEvent event) {
-        int nomorHapus = Integer.parseInt(tfHapusAlamat.getText());
-        for (int i = 0; i <=daftarAlamat.size(); i++) {
-            if (nomorHapus == daftarAlamat.get(i).getNomor()) {
-                nomor = cariMahasiswa(nomorHapus);
-
-                // daftarMahasiswa.hapusMahasiswa(indexHapus);
-                hapusMahasiswa(nomorHapus-1);
-                refresh();
-                break;
+        int selectedIndex = tabelView.getSelectionModel().getSelectedIndex();
+        daftarAlamat.remove(selectedIndex);
+        tabelView.getItems().remove(selectedIndex);
+        for (int i = 0; i < daftarAlamat.size(); i++) {
+            String emailUser = daftarAlamat.get(i).getEmail();
+            if (emailUser.equals(email)) {
+                identitas += 1;
+                daftarAlamat.get(i).setNomor(identitas);
             }
         }
+        writer.simpanData(daftarAlamat, "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
+        // int nomorHapus = Integer.parseInt(tfHapusAlamat.getText());
+        // for (int i = 0; i <= daftarAlamat.size(); i++) {
+        // if (nomorHapus == daftarAlamat.get(i).getNomor()) {
+        // nomor = cariMahasiswa(nomorHapus);
+
+        // // daftarMahasiswa.hapusMahasiswa(indexHapus);
+        // hapusMahasiswa(nomorHapus - 1);
+        // order.reorderAlamat();
+        // refresh();
+        // break;
+        // }
+        // }
 
     }
 
@@ -180,10 +186,11 @@ public class ControllerTambahAlamat implements Initializable {
     @FXML
     void Back(ActionEvent event) throws IOException {
         Parent root;
-        ControllerHome.email = email;
+
         // loader.setController(home);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanProfil.fxml"));
+        ControllerProfil.email = email;
         root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = new Stage();

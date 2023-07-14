@@ -114,7 +114,7 @@ public class ControllerPembelian implements Initializable {
                         String EMAIL = dataPembelian.get(i).getEmail();
                         if (EMAIL.equals(email)) {
                                 tableView.getItems().add(
-                                                dataPembelian.get(i));
+                                        dataPembelian.get(i));
                         }
 
                 }

@@ -35,13 +35,25 @@ public class ControllerChangePass {
     @FXML
     private TextField tfPassword;
 
+    private boolean isChangingPass(String email, String pass) {
+        for (int i = 0; i < dataUser.size(); i++) {
+            String eMAIL = dataUser.get(i).getEmail();
+            if (eMAIL.equals(email)) {
+                dataUser.get(i).setPassword(pass);
+                return true;
+            }
+        }
+        return false;
+
+    }
+
     @FXML
     void changePassword(ActionEvent event) {
         Parent root;
         String email = tfEmail.getText();
         String newPass = tfPassword.getText();
 
-        if (changePass(email, newPass)) {
+        if (isChangingPass(email, newPass)) {
             writer.simpanData(dataUser, "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataLogin.csv");
         }
 
@@ -99,18 +111,6 @@ public class ControllerChangePass {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
-
-    private boolean changePass(String email, String pass) {
-        for (int i = 0; i < dataUser.size(); i++) {
-            String eMAIL = dataUser.get(i).getEmail();
-            if (eMAIL.equals(email)) {
-                dataUser.get(i).setPassword(pass);
-                return true;
-            }
-        }
-        return false;
-
     }
 
     @FXML

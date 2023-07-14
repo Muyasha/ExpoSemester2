@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,9 +24,7 @@
          </columnResizePolicy>
       </TableView>
       <Button fx:id="btnSearch" layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#search" text="search" />
-      <TextField fx:id="tfPick" layoutX="427.0" layoutY="103.0" />
       <Button fx:id="btnPick" layoutX="599.0" layoutY="103.0" mnemonicParsing="false" onAction="#pick" text="pick" />
       <Button fx:id="btnBack" layoutX="436.0" layoutY="26.0" mnemonicParsing="false" onAction="#back" text="back" />
-      <Label layoutX="427.0" layoutY="87.0" text="Masukkan Nama Barang" />
    </children>
 </AnchorPane>

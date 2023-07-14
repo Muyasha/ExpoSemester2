@@ -16,7 +16,7 @@ public class CSVReaderPenjualan {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(delimiter);
-                if (data.length == 8) {
+                if (data.length == 9) {
                     String email = data[0].trim();
                     int ID = Integer.parseInt(data[1].trim());
                     String kategori = data[2].trim();

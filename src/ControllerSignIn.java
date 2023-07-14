@@ -45,7 +45,7 @@ public class ControllerSignIn {
         String username = tfUsername.getText();
         String noHP = tfNoHP.getText();
         String password = tfPassword.getText();
-        int saldo = 10000000;
+        int saldo = 100000000;
 
         dataUser.add(new ModelUser(Email, username, noHP, password, saldo));
         writer.simpanData(dataUser, "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataLogin.csv");

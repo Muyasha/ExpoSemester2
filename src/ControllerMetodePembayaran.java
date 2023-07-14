@@ -47,7 +47,7 @@ public class ControllerMetodePembayaran implements Initializable {
     public static String biayaPengiriman;
     public static String totalBayar;
     public static int iD;
-    public static int stokFinal;
+    public static int stokBeli;
     public static String nama;
     public static String alamat;
 
@@ -64,7 +64,7 @@ public class ControllerMetodePembayaran implements Initializable {
     }
 
     public static String email;
-    public static String stokSisa;
+    public static int stokSisa;
     String iniEmail;
 
     String metodePembayaran;
@@ -81,42 +81,66 @@ public class ControllerMetodePembayaran implements Initializable {
         String id = Integer.toString(dataPembelian.size() + 1);
         String name = nama;
         String biaya = totalBayar;
-        String jumlah = Integer.toString(stokFinal);
+        String jumlah = Integer.toString(stokBeli);
         String asal = alamat;
+        int stokBarang = 0;
 
         int uang = 0;
         int totalBiaya = Integer.parseInt(biaya);
 
         for (int i = 0; i < dataUser.size(); i++) {
-            ModelUser usertemp = new ModelUser();
             String eMail = dataUser.get(i).getEmail();
             if (eMail.equals(email)) {
-                usertemp.setSaldo(dataUser.get(i).getSaldo());
-                uang = usertemp.getSaldo();
+                uang = dataUser.get(i).getSaldo();
+            }
+        }
+
+        for (int i = 0; i < dataBarang.size(); i++) {
+            String namaBarang = dataBarang.get(i).getNamaBarang();
+
+            if (namaBarang.equals(name)) {
+                stokBarang = Integer.parseInt(dataBarang.get(i).getStok());
             }
         }
 
         boolean saldo = checkSaldo.isSelected();
         boolean COD = checkCOD.isSelected();
+        CSVWriter writerUser = new CSVWriter();
+        CSVWriterBarang writerBarang = new CSVWriterBarang();
 
         if (saldo) {
             metodePembayaran = "Saldo";
+
             if (uang > totalBiaya) {
                 int kembalian = uang - totalBiaya;
-                String kembalians = Integer.toString(kembalian);
+                stokSisa = stokBarang - stokBeli;
+
                 for (int i = 0; i < dataUser.size(); i++) {
                     String eMAIL = dataUser.get(i).getEmail();
-                    if (eMAIL.equals(email)) {
 
+                    if (eMAIL.equals(email)) {
                         dataUser.get(i).setSaldo(kembalian);
+                        writerUser.simpanData(dataUser,
+                                "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataLogin.csv");
+
+                        for (int j = 0; j < dataBarang.size(); j++) {
+                            String namaBarang = dataBarang.get(j).getNamaBarang();
+                            if (namaBarang.equals(name)) {
+                                dataBarang.get(j).setStok(String.valueOf(stokSisa));
+                                writerBarang.simpanData(dataBarang,
+                                        "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
+                            }
+                        }
+
                         dataPembelian.add(new ModelPembelian(EMAIL, id, name, biaya, jumlah, asal, metodePembayaran));
                         writer.simpanData(dataPembelian,
                                 "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
                         try {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanStrukPembelian.fxml"));
                             ControllerStrukPembelian struk = new ControllerStrukPembelian();
+                            struk.stokSisa = stokSisa;
                             struk.EMAIL = iniEmail;
-                            struk.stokFinal = stokFinal;
+                            struk.stokFinal = stokBeli;
                             struk.hargaTotal = hargaTotal;
                             struk.iD = iD;
                             root = loader.load();
@@ -150,8 +174,9 @@ public class ControllerMetodePembayaran implements Initializable {
                 System.out.println(iniEmail);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanStrukPembelian.fxml"));
                 ControllerStrukPembelian struk = new ControllerStrukPembelian();
+                struk.stokSisa = stokSisa;
                 struk.EMAIL = iniEmail;
-                struk.stokFinal = stokFinal;
+                struk.stokFinal = stokBeli;
                 struk.hargaTotal = hargaTotal;
                 struk.iD = iD;
                 root = loader.load();

@@ -102,8 +102,21 @@ public class ControllerStrukPembelian implements Initializable {
         }
     }
 
+    public static int stokSisa;
+    ArrayList<ModelBarang> dataBarang = new CSVReaderBarang()
+            .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
+
     @FXML
     void BacktoHome(ActionEvent event) {
+        for (int i = 0; i < dataBarang.size(); i++) {
+            int identitas = dataBarang.get(i).getID();
+            if (stokSisa == 0) {
+                if (iD == identitas) {
+                    dataBarang.remove(i);
+                }
+            }
+        }
+
         Parent root;
 
         try {

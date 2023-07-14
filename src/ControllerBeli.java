@@ -164,7 +164,7 @@ public class ControllerBeli implements Initializable {
                 bayar.email = email;
                 bayar.nama = barang.getNamaBarang();
                 bayar.alamat = barang.getAlamat();
-                bayar.stokFinal = stokFinal;
+                bayar.stokBeli = stokBeli;
                 bayar.iD = iD;
                 bayar.hargaTotal = hargaFinal;
                 root = loader.load();
@@ -184,7 +184,6 @@ public class ControllerBeli implements Initializable {
         }
     }
 
-    int stokFinal;
     String hargaFinal;
     String biaya;
     String pengiriman;
@@ -196,7 +195,7 @@ public class ControllerBeli implements Initializable {
         String jenisPengiriman = choiceJenisPengiriman.getValue();
         String angka = tfStok.getText();
         String angkaData = dataInfoBarang.get(iD - 1).getStok();
-        int stok = Integer.parseInt(angka);
+        stokBeli = Integer.parseInt(angka);
         int stokData = Integer.parseInt(angkaData);
         int biayaPengiriman;
         if (jenisPengiriman == null || angka == null || angkaData == null) {
@@ -207,8 +206,7 @@ public class ControllerBeli implements Initializable {
             alert.showAndWait();
         }
 
-        if (stok <= stokData && stok > 0) {
-            stokFinal = stok;
+        if (stokBeli <= stokData && stokBeli > 0) {
             String hargaString;
             int hargaint;
             long hargaTotal;
@@ -217,7 +215,7 @@ public class ControllerBeli implements Initializable {
                     String harga = dataInfoBarang.get(i).getHarga();
                     hargaString = harga;
                     hargaint = Integer.parseInt(hargaString);
-                    hargaTotal = stokFinal * hargaint;
+                    hargaTotal = stokBeli * hargaint;
                     String totalString = Long.toString(hargaTotal);
                     hargaFinal = totalString;
                     lblTotalHarga.setText("Rp " + totalString);

@@ -58,7 +58,7 @@
             <Font name="Helvetica" size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="profil" fitHeight="49.0" fitWidth="43.0" layoutX="1170.0" layoutY="17.0" onMouseClicked="#toProfil" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="profil" fitHeight="49.0" fitWidth="43.0" layoutX="1170.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Users/Yasir/Downloads/file-svg-profile-icon-vector-11562942678pprjdh47a8-removebg-preview%20(1).png" />
          </image>
@@ -170,5 +170,6 @@
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Button>
+      <Button fx:id="btntoProfil" layoutX="1166.0" layoutY="14.0" mnemonicParsing="false" onAction="#toProfil" opacity="0.0" prefHeight="49.0" prefWidth="52.0" text="Button" />
    </children>
 </AnchorPane>

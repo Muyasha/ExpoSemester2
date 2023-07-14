@@ -43,9 +43,7 @@ public class ControllerLogin {
         try {
             if (validateLogin(email, password)) {
                 System.out.println("login berhasil");
-                // ControllerHome home = new ControllerHome();
                 ControllerHome.email = email;
-                // loader.setController(home);
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanHome.fxml"));
                 root = loader.load();
@@ -120,8 +118,6 @@ public class ControllerLogin {
     private boolean validateLogin(String email, String password) {
         for (int i = 0; i < dataUser.size(); i++) {
             String eMAIL = dataUser.get(i).getEmail();
-            // String username = dataUser.get(i).getUsername();
-            // String noHp = dataUser.get(i).getNoHP();
             String pass = dataUser.get(i).getPassword();
             if (eMAIL.equals(email) && pass.equals(password)) {
                 return true;
