@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #cbcbcb;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerHome">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerHome">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="634.0" layoutY="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
       <ImageView fitHeight="55.0" fitWidth="225.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -63,65 +63,65 @@
             <Image url="@../../../../../../Users/Yasir/Downloads/file-svg-profile-icon-vector-11562942678pprjdh47a8-removebg-preview%20(1).png" />
          </image>
       </ImageView>
-      <Pane fx:id="paneBrng1" layoutX="60.0" layoutY="480.0" onMouseClicked="#showBrng1" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng1" layoutX="60.0" layoutY="480.0" onMouseClicked="#showBrng1" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: fffff;">
          <children>
-            <Label fx:id="nameBrng1" layoutX="13.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0" prefHeight="17.0" prefWidth="155.0" text="Nama Barang">
+            <Label fx:id="nameBrng1" layoutX="13.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0" prefHeight="17.0" prefWidth="155.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng1" layoutX="14.0" layoutY="169.0" text="Harga">
+            <Label fx:id="hargaBrng1" layoutX="14.0" layoutY="169.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
             <ImageView fx:id="imgBrng1" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Pane fx:id="paneBrng2" layoutX="300.0" layoutY="480.0" onMouseClicked="#showBrng2" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng2" layoutX="300.0" layoutY="480.0" onMouseClicked="#showBrng2" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: ffffff;">
          <children>
-            <Label fx:id="nameBrng2" layoutX="15.0" layoutY="140.0" maxHeight="20.0" maxWidth="150.0" prefHeight="16.0" prefWidth="155.0" text="Nama Barang">
+            <Label fx:id="nameBrng2" layoutX="15.0" layoutY="140.0" maxHeight="20.0" maxWidth="150.0" prefHeight="16.0" prefWidth="155.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng2" layoutX="14.0" layoutY="169.0" text="Harga">
+            <Label fx:id="hargaBrng2" layoutX="14.0" layoutY="169.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
             <ImageView fx:id="imgBrng2" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Pane fx:id="paneBrng3" layoutX="530.0" layoutY="480.0" onMouseClicked="#showBrng3" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng3" layoutX="530.0" layoutY="480.0" onMouseClicked="#showBrng3" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: ffffff;">
          <children>
-            <Label fx:id="nameBrng3" layoutX="14.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
+            <Label fx:id="nameBrng3" layoutX="14.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng3" layoutX="14.0" layoutY="169.0" text="Harga">
+            <Label fx:id="hargaBrng3" layoutX="14.0" layoutY="169.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
             <ImageView fx:id="imgBrng3" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Pane fx:id="paneBrng4" layoutX="760.0" layoutY="480.0" onMouseClicked="#showBrng4" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng4" layoutX="760.0" layoutY="480.0" onMouseClicked="#showBrng4" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: ffffff;">
          <children>
-            <Label fx:id="nameBrng4" layoutX="14.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
+            <Label fx:id="nameBrng4" layoutX="14.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng4" layoutX="14.0" layoutY="169.0" text="Harga">
+            <Label fx:id="hargaBrng4" layoutX="14.0" layoutY="169.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
             <ImageView fx:id="imgBrng4" fitHeight="140.0" fitWidth="181.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Pane fx:id="paneBrng5" layoutX="990.0" layoutY="480.0" onMouseClicked="#showBrng5" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: a0a0a0;">
+      <Pane fx:id="paneBrng5" layoutX="990.0" layoutY="480.0" onMouseClicked="#showBrng5" prefHeight="200.0" prefWidth="180.0" style="-fx-background-color: ffffff;">
          <children>
-            <Label fx:id="nameBrng5" layoutX="14.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0" text="Nama Barang">
+            <Label fx:id="nameBrng5" layoutX="14.0" layoutY="140.0" maxHeight="20.0" maxWidth="170.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="hargaBrng5" layoutX="14.0" layoutY="169.0" text="Harga">
+            <Label fx:id="hargaBrng5" layoutX="14.0" layoutY="169.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
@@ -151,7 +151,7 @@
          </children></Pane>
       <Pane fx:id="paneBecomePenjual" layoutX="861.0" layoutY="114.0" onMouseClicked="#becomePenjual" prefHeight="336.0" prefWidth="308.0" style="-fx-background-color: a0a0a0; -fx-background-radius: 20;">
          <children>
-            <ImageView fitHeight="336.0" fitWidth="339.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="336.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../Users/Yasir/OneDrive/Pictures/Screenshots/Screenshot%202023-07-10%20204238.png" />
                </image>

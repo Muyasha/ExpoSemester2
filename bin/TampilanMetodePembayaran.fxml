@@ -4,7 +4,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,14 +12,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #cbcbcb;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerMetodePembayaran">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerMetodePembayaran">
    <children>
       <ImageView fitHeight="36.0" fitWidth="208.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Users/Yasir/Downloads/Screenshot_2023-07-04_082058-removebg-preview.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutY="125.0" prefHeight="450.0" prefWidth="1251.0" style="-fx-background-color: white;">
+      <AnchorPane layoutY="125.0" prefHeight="450.0" prefWidth="1287.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="875.0" layoutY="68.0" text="Rincian Pembayaran">
                <font>
@@ -38,20 +37,20 @@
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Line endX="278.6666259765625" layoutX="975.0" layoutY="198.0" startX="-100.0" />
-            <Label fx:id="lblHarga" layoutX="1141.0" layoutY="117.0" text="harga">
+            <Line endX="261.0" layoutX="975.0" layoutY="198.0" startX="-100.0" />
+            <Label fx:id="lblHarga" layoutX="1141.0" layoutY="117.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="lblBiayaPengiriman" layoutX="1141.0" layoutY="169.0" text="biaya pengiriman">
+            <Label fx:id="lblBiayaPengiriman" layoutX="1141.0" layoutY="169.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Label fx:id="lblTotalBiaya" layoutX="1143.0" layoutY="218.0" text="Total biaya">
+            <Label fx:id="lblTotalBiaya" layoutX="1143.0" layoutY="218.0">
                <font>
                   <Font name="Helvetica" size="18.0" />
                </font></Label>
-            <Button fx:id="btnBayar" layoutX="966.0" layoutY="342.0" mnemonicParsing="false" onAction="#Bayar" prefHeight="36.0" prefWidth="183.0" style="-fx-background-color: #ff0000;" text="Bayar" textFill="WHITE">
+            <Button fx:id="btnBuatPesanan" layoutX="966.0" layoutY="342.0" mnemonicParsing="false" onAction="#buatPesanan" prefHeight="36.0" prefWidth="183.0" style="-fx-background-color: #ff0000;" text="Buat Pesanan" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -63,13 +62,9 @@
             </Label>
             <Pane layoutX="29.0" layoutY="48.0" prefHeight="57.0" prefWidth="728.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="728.0">
-                     <effect>
-                        <Reflection fraction="0.52" topOpacity="0.51" />
-                     </effect>
-                  </Rectangle>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="728.0" />
                   <CheckBox fx:id="checkSaldo" layoutX="21.0" layoutY="20.0" mnemonicParsing="false" />
-                  <Label layoutX="61.0" layoutY="20.0" text="Saldo">
+                  <Label layoutX="58.0" layoutY="16.0" text="Saldo">
                      <font>
                         <Font name="Helvetica" size="18.0" />
                      </font></Label>
@@ -77,13 +72,9 @@
             </Pane>
             <Pane layoutX="29.0" layoutY="147.0" prefHeight="57.0" prefWidth="728.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="728.0">
-                     <effect>
-                        <Reflection fraction="0.52" topOpacity="0.51" />
-                     </effect>
-                  </Rectangle>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="728.0" />
                   <CheckBox fx:id="checkCOD" layoutX="21.0" layoutY="20.0" mnemonicParsing="false" />
-                  <Label layoutX="61.0" layoutY="20.0" text="COD">
+                  <Label layoutX="57.0" layoutY="15.0" text="COD">
                      <font>
                         <Font name="Helvetica" size="18.0" />
                      </font></Label>
@@ -94,6 +85,6 @@
             <InnerShadow />
          </effect>
       </AnchorPane>
-      <Button fx:id="btnBack" layoutX="30.0" layoutY="73.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button fx:id="btnBack" layoutX="30.0" layoutY="68.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: white; -fx-border-color: orange;" text="Back" />
    </children>
 </AnchorPane>

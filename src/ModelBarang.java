@@ -7,14 +7,17 @@ public class ModelBarang {
     private String deskripsi;
     private String image;
     private String alamat;
+    private String emailPenjual;
 
     // constructor
     public ModelBarang() {
     }
 
-    public ModelBarang(int ID, String kategori, String namaBarang, String harga, String stok, String deskripsi,
-            String image, String alamat) {
-        this.ID = ID;
+    // getter dan setter
+
+    public ModelBarang(int iD, String kategori, String namaBarang, String harga, String stok, String deskripsi,
+            String image, String alamat, String emailPenjual) {
+        ID = iD;
         this.kategori = kategori;
         this.namaBarang = namaBarang;
         this.harga = harga;
@@ -22,9 +25,8 @@ public class ModelBarang {
         this.deskripsi = deskripsi;
         this.image = image;
         this.alamat = alamat;
+        this.emailPenjual = emailPenjual;
     }
-
-    // getter dan setter
 
     public String getNamaBarang() {
         return namaBarang;
@@ -94,6 +96,14 @@ public class ModelBarang {
 
     public void setAlamat(String alamat) {
         this.alamat = alamat;
+    }
+
+    public String getEmailPenjual() {
+        return emailPenjual;
+    }
+
+    public void setEmailPenjual(String emailPenjual) {
+        this.emailPenjual = emailPenjual;
     }
 
 }

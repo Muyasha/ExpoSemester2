@@ -50,9 +50,5 @@
           <TableColumn fx:id="tabelAlamat" prefWidth="684.3333282470703" text="Alamat" />
         </columns>
       </TableView>
-      <Button fx:id="btnSave" layoutX="1102.0" layoutY="645.0" mnemonicParsing="false" onAction="#Save" text="Save">
-         <font>
-            <Font name="Helvetica" size="18.0" />
-         </font></Button>
    </children>
 </AnchorPane>

@@ -32,6 +32,8 @@ public class ControllerBeli implements Initializable {
     @FXML
     private Button btnBayar;
     @FXML
+    private Button btnBack;
+    @FXML
     private Button btnSetStok;
     @FXML
     private ImageView imgBack;
@@ -78,6 +80,7 @@ public class ControllerBeli implements Initializable {
 
     public static String email;
     public static int iD;
+    public static int hargaNego;
     private ModelBarang barang;
     String[] daftarJenisPengiriman = new String[] { "Reguler", "Express" };
     ArrayList<ModelAlamat> daftarAlamat = new CSVReaderAlamat()
@@ -87,7 +90,10 @@ public class ControllerBeli implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         for (int i = 0; i < daftarAlamat.size(); i++) {
-            dataAlamat.add(daftarAlamat.get(i).getAlamat());
+            String EMAIL = daftarAlamat.get(i).getEmail();
+            if (EMAIL.equals(email)) {
+                dataAlamat.add(daftarAlamat.get(i).getAlamat());
+            }
         }
         choiceAlamatPengiriman.getItems().addAll(dataAlamat);
         choiceJenisPengiriman.getItems().addAll(daftarJenisPengiriman);
@@ -130,7 +136,7 @@ public class ControllerBeli implements Initializable {
     }
 
     @FXML
-    void Back(MouseEvent event) {
+    void Back(ActionEvent event) {
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
@@ -158,7 +164,7 @@ public class ControllerBeli implements Initializable {
             if (hargaFinal != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanMetodePembayaran.fxml"));
                 ControllerMetodePembayaran bayar = new ControllerMetodePembayaran();
-                
+
                 bayar.totalBayar = biaya;
                 bayar.biayaPengiriman = pengiriman;
                 bayar.email = email;
@@ -167,6 +173,7 @@ public class ControllerBeli implements Initializable {
                 bayar.stokBeli = stokBeli;
                 bayar.iD = iD;
                 bayar.hargaTotal = hargaFinal;
+                bayar.hargaNego = hargaNego;
                 root = loader.load();
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -212,13 +219,21 @@ public class ControllerBeli implements Initializable {
             long hargaTotal;
             for (int i = 0; i < dataInfoBarang.size(); i++) {
                 if (iD == dataInfoBarang.get(i).getID()) {
-                    String harga = dataInfoBarang.get(i).getHarga();
-                    hargaString = harga;
-                    hargaint = Integer.parseInt(hargaString);
-                    hargaTotal = stokBeli * hargaint;
-                    String totalString = Long.toString(hargaTotal);
-                    hargaFinal = totalString;
-                    lblTotalHarga.setText("Rp " + totalString);
+                    if (hargaNego == 0) {
+                        String harga = dataInfoBarang.get(i).getHarga();
+                        hargaString = harga;
+                        hargaint = Integer.parseInt(hargaString);
+                        hargaTotal = stokBeli * hargaint;
+                        String totalString = Long.toString(hargaTotal);
+                        hargaFinal = totalString;
+                        lblTotalHarga.setText("Rp " + totalString);
+                    } else if (hargaNego != 0) {
+                        hargaint = hargaNego;
+                        hargaTotal = stokBeli * hargaint;
+                        String totalString = Long.toString(hargaTotal);
+                        hargaFinal = totalString;
+                        lblTotalHarga.setText(totalString);
+                    }
                 }
 
             }

@@ -83,7 +83,10 @@ public class ControllerTambahBarang implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         for (int i = 0; i < daftarAlamat.size(); i++) {
-            dataAlamat.add(daftarAlamat.get(i).getAlamat());
+            String EMAIL = daftarAlamat.get(i).getEmail();
+            if (email.equals(EMAIL)) {
+                dataAlamat.add(daftarAlamat.get(i).getAlamat());
+            }
         }
         choiceKategori.getItems().addAll(daftarKategori);
         choiceAlamat.getItems().addAll(dataAlamat);
@@ -169,7 +172,7 @@ public class ControllerTambahBarang implements Initializable {
                     "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPenjualan.csv");
 
             int Identitas = nomor + 1;
-            daftarBarang.add(new ModelBarang(IDBarang, kategori, nama, harga, stok, deskripsi, image, alamat));
+            daftarBarang.add(new ModelBarang(IDBarang, kategori, nama, harga, stok, deskripsi, image, alamat, email));
             writerBarang.simpanData(daftarBarang,
                     "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
 

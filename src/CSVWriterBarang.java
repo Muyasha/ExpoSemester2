@@ -31,7 +31,7 @@ public class CSVWriterBarang {
             for (ModelBarang i : dataBarang) {
                 writer.println(i.getID() + delimiter + i.getKategori() + delimiter + i.getNamaBarang() + delimiter
                         + i.getHarga() + delimiter + i.getStok() + delimiter + i.getDeskripsi() + delimiter
-                        + i.getImage() + delimiter + i.getAlamat());
+                        + i.getImage() + delimiter + i.getAlamat() + delimiter + i.getEmailPenjual());
 
                 // writer.println(i.getEmail() + delimiter + i.getUsername() + delimiter +
                 // i.getNoHP() + delimiter

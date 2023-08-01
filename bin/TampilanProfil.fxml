@@ -7,11 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerProfil">
    <children>
-      <Pane layoutY="-21.0" prefHeight="170.0" prefWidth="1280.0" style="-fx-background-color: a0a0a0; -fx-background-radius: 20;">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="61.0" layoutX="724.0" layoutY="169.0" stroke="BLACK" strokeType="INSIDE" width="510.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="76.0" layoutX="724.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" width="510.0" />
+      <Pane layoutY="-21.0" prefHeight="170.0" prefWidth="1280.0" style="-fx-background-color: d9d9d9; -fx-background-radius: 20;">
          <children>
             <ImageView fitHeight="68.0" fitWidth="85.0" layoutX="31.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -35,7 +38,7 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="btnBack" layoutX="1193.0" layoutY="28.0" mnemonicParsing="false" onAction="#back" text="back" />
+      <Button fx:id="btnBack" layoutX="1167.0" layoutY="28.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: orange;" text="Home" />
       <HBox layoutX="72.0" layoutY="184.0" prefHeight="27.0" prefWidth="503.0" spacing="50.0">
          <children>
             <Label prefHeight="27.0" prefWidth="241.0" text="Saldo: ">
@@ -50,7 +53,8 @@
       </HBox>
       <Pane layoutX="69.0" layoutY="250.0" prefHeight="200.0" prefWidth="503.0">
          <children>
-            <Label layoutY="6.0" text="Transaksi">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="207.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="510.0" />
+            <Label layoutX="14.0" layoutY="14.0" text="Transaksi">
                <font>
                   <Font size="18.0" />
                </font></Label>
@@ -66,11 +70,25 @@
             <Button fx:id="btnLihatPembelian" layoutX="364.0" layoutY="122.0" mnemonicParsing="false" onAction="#lihatPembelian" text="Lihat Pembelian" />
          </children>
       </Pane>
-      <HBox layoutX="730.0" layoutY="184.0" prefHeight="25.0" prefWidth="503.0" spacing="300.0">
+      <HBox layoutX="730.0" layoutY="184.0" prefHeight="25.0" prefWidth="503.0" spacing="130.0">
          <children>
-            <Label text="Alamat Pengiriman" />
+            <Label prefHeight="27.0" prefWidth="277.0" text="Alamat Pengiriman">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
             <Button fx:id="btnAlamat" mnemonicParsing="false" onAction="#toAlamat" text="Kelola Alamat" />
          </children>
       </HBox>
+      <Button fx:id="btnKonfirmasi" layoutX="1141.0" layoutY="275.0" mnemonicParsing="false" onAction="#toKonfirmasi" text="Konfirmasi" />
+      <Label fx:id="lblNama1" layoutX="730.0" layoutY="273.0" text="Konfirmasi Pembelian">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnLogOut" layoutX="1122.0" layoutY="625.0" mnemonicParsing="false" onAction="#LogOut" text="Logout">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

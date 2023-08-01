@@ -7,6 +7,9 @@ public class ModelPembelian {
     private String asalBarang;
     private String metodeBayar;
 
+    
+
+
     public ModelPembelian() {
     }
 

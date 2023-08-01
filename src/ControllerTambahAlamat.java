@@ -31,9 +31,6 @@ public class ControllerTambahAlamat implements Initializable {
     private Button btnTambah;
 
     @FXML
-    private Button btnSave;
-
-    @FXML
     private TableColumn<ModelAlamat, String> tabelAlamat;
 
     @FXML
@@ -90,13 +87,21 @@ public class ControllerTambahAlamat implements Initializable {
                         "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
                 break;
             }
-            if (daftarAlamat.get(i).getAlamat().equalsIgnoreCase(alamat)) {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("Peringatan");
-                alert.setHeaderText(null);
-                alert.setContentText("Alamat telah ada di daftar");
-                alert.showAndWait();
-                break;
+            if (daftarAlamat.get(i).getEmail().equals(email)) {
+                if (daftarAlamat.get(i).getAlamat().equalsIgnoreCase(alamat)) {
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Peringatan");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Alamat telah ada di daftar");
+                    alert.showAndWait();
+                    break;
+                } else {
+                    nomor += 1;
+                    daftarAlamat.add(new ModelAlamat(eMail, nomor, alamat));
+                    writer.simpanData(daftarAlamat,
+                            "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
+                    break;
+                }
             } else {
                 nomor += 1;
                 daftarAlamat.add(new ModelAlamat(eMail, nomor, alamat));
@@ -116,11 +121,39 @@ public class ControllerTambahAlamat implements Initializable {
 
     int identitas = 0;
 
+    ArrayList<ModelAlamat> dataAlamat = new CSVReaderAlamat()
+            .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv", email);
+
     @FXML
     void HapusAlamat(ActionEvent event) {
+        // int selectedIndex = tabelView.getSelectionModel().getSelectedIndex();
+        // if (selectedIndex >= 0) {
+
+        // // Hapus alamat dari daftarAlamat
+        // daftarAlamat.remove(selectedIndex);
+
+        // // Simpan perubahan daftarAlamat ke dalam file CSV
+        // writer.simpanData(daftarAlamat, "C://Kuliah//Semester
+        // 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
+
+        // // Perbarui nomor identitas berdasarkan indeks dalam daftarAlamat
+        // for (int i = 0; i < daftarAlamat.size(); i++) {
+        // daftarAlamat.get(i).setNomor(i + 1);
+        // }
+        // refresh();
+        // }
+
         int selectedIndex = tabelView.getSelectionModel().getSelectedIndex();
-        daftarAlamat.remove(selectedIndex);
-        tabelView.getItems().remove(selectedIndex);
+        for (int index = 0; index < daftarAlamat.size(); index++) {
+            String EMAIL = daftarAlamat.get(index).getEmail();
+            if (EMAIL.equals(email)) {
+                int letak = index + selectedIndex;
+                dataAlamat.remove(letak);
+                writer.simpanData(dataAlamat, "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
+                tabelView.getItems().remove(selectedIndex);
+            }
+        }
+
         for (int i = 0; i < daftarAlamat.size(); i++) {
             String emailUser = daftarAlamat.get(i).getEmail();
             if (emailUser.equals(email)) {
@@ -128,25 +161,6 @@ public class ControllerTambahAlamat implements Initializable {
                 daftarAlamat.get(i).setNomor(identitas);
             }
         }
-        writer.simpanData(daftarAlamat, "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataAlamat.csv");
-        // int nomorHapus = Integer.parseInt(tfHapusAlamat.getText());
-        // for (int i = 0; i <= daftarAlamat.size(); i++) {
-        // if (nomorHapus == daftarAlamat.get(i).getNomor()) {
-        // nomor = cariMahasiswa(nomorHapus);
-
-        // // daftarMahasiswa.hapusMahasiswa(indexHapus);
-        // hapusMahasiswa(nomorHapus - 1);
-        // order.reorderAlamat();
-        // refresh();
-        // break;
-        // }
-        // }
-
-    }
-
-    @FXML
-    void Save(ActionEvent event) {
-
     }
 
     public void refresh() {

@@ -88,6 +88,7 @@ public class ControllerInfoBarang implements Initializable {
             ControllerBeli beli = new ControllerBeli();
             beli.email = email;
             beli.iD = iD;
+            beli.hargaNego = 0;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();

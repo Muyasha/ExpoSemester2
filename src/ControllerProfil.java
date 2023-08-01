@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ControllerProfil implements Initializable {
@@ -22,10 +23,16 @@ public class ControllerProfil implements Initializable {
     private Button btnBack;
 
     @FXML
+    private Button btnKonfirmasi;
+
+    @FXML
     private Button btnLihatPembelian;
 
     @FXML
     private Button btnLihatPenjualan;
+
+    @FXML
+    private Button btnLogOut;
 
     @FXML
     private Label lblEmail;
@@ -155,8 +162,52 @@ public class ControllerProfil implements Initializable {
     }
 
     @FXML
+    void toKonfirmasi(ActionEvent event) {
+        Parent root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanKonfirmasiPembelian.fxml"));
+            ControllerKonfirmasiPembelian.email = email;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void LogOut(ActionEvent event) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanLogin.fxml"));
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void nonBtnClick(ActionEvent event) {
         ((Parent) event.getSource()).getScene().getWindow().hide();// closecurrentstage
     }
 
+    @FXML
+    private void nonBtnClick(MouseEvent event) {
+        ((Parent) event.getSource()).getScene().getWindow().hide();// closecurrentstage
+    }
 }

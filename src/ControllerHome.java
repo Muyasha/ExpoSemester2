@@ -217,43 +217,141 @@ public class ControllerHome implements Initializable {
             user = usertemp;
         }
 
-        nameBrng1.setText(dataNamaBarang.get(0));
-        nameBrng2.setText(dataNamaBarang.get(1));
-        nameBrng3.setText(dataNamaBarang.get(2));
-        nameBrng4.setText(dataNamaBarang.get(3));
-        nameBrng5.setText(dataNamaBarang.get(4));
-
-        hargaBrng1.setText(dataHargaBarang.get(0));
-        hargaBrng2.setText(dataHargaBarang.get(1));
-        hargaBrng3.setText(dataHargaBarang.get(2));
-        hargaBrng4.setText(dataHargaBarang.get(3));
-        hargaBrng5.setText(dataHargaBarang.get(4));
-
         try {
-            File a = new File(dataBarang.get(0).getImage());
-            FileInputStream file1 = new FileInputStream(a);
-            Image image1 = new Image(file1);
-            imgBrng1.setImage(image1);
+            if (dataBarang.size() == 1) {
+                nameBrng1.setText(dataNamaBarang.get(0));
 
-            File b = new File(dataBarang.get(1).getImage());
-            FileInputStream file2 = new FileInputStream(b);
-            Image image2 = new Image(file2);
-            imgBrng2.setImage(image2);
+                hargaBrng1.setText(dataHargaBarang.get(0));
 
-            File c = new File(dataBarang.get(2).getImage());
-            FileInputStream file3 = new FileInputStream(c);
-            Image image3 = new Image(file3);
-            imgBrng3.setImage(image3);
+                File a = new File(dataBarang.get(0).getImage());
+                FileInputStream file1 = new FileInputStream(a);
+                Image image1 = new Image(file1);
+                imgBrng1.setImage(image1);
+                paneBrng1.setStyle("-fx-background-color: #d9d9d9;");
 
-            File d = new File(dataBarang.get(3).getImage());
-            FileInputStream file4 = new FileInputStream(d);
-            Image image4 = new Image(file4);
-            imgBrng4.setImage(image4);
+            } else if (dataBarang.size() == 2) {
+                nameBrng1.setText(dataNamaBarang.get(0));
+                nameBrng2.setText(dataNamaBarang.get(1));
 
-            File e = new File(dataBarang.get(4).getImage());
-            FileInputStream file5 = new FileInputStream(e);
-            Image image5 = new Image(file5);
-            imgBrng5.setImage(image5);
+                hargaBrng1.setText(dataHargaBarang.get(0));
+                hargaBrng2.setText(dataHargaBarang.get(1));
+
+                File a = new File(dataBarang.get(0).getImage());
+                FileInputStream file1 = new FileInputStream(a);
+                Image image1 = new Image(file1);
+                imgBrng1.setImage(image1);
+
+                File b = new File(dataBarang.get(1).getImage());
+                FileInputStream file2 = new FileInputStream(b);
+                Image image2 = new Image(file2);
+                imgBrng2.setImage(image2);
+                paneBrng1.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng2.setStyle("-fx-background-color: #d9d9d9;");
+            } else if (dataBarang.size() == 3) {
+                nameBrng1.setText(dataNamaBarang.get(0));
+                nameBrng2.setText(dataNamaBarang.get(1));
+                nameBrng3.setText(dataNamaBarang.get(2));
+
+                hargaBrng1.setText(dataHargaBarang.get(0));
+                hargaBrng2.setText(dataHargaBarang.get(1));
+                hargaBrng3.setText(dataHargaBarang.get(2));
+
+                File a = new File(dataBarang.get(0).getImage());
+                FileInputStream file1 = new FileInputStream(a);
+                Image image1 = new Image(file1);
+                imgBrng1.setImage(image1);
+
+                File b = new File(dataBarang.get(1).getImage());
+                FileInputStream file2 = new FileInputStream(b);
+                Image image2 = new Image(file2);
+                imgBrng2.setImage(image2);
+
+                File c = new File(dataBarang.get(2).getImage());
+                FileInputStream file3 = new FileInputStream(c);
+                Image image3 = new Image(file3);
+                imgBrng3.setImage(image3);
+                paneBrng1.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng2.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng3.setStyle("-fx-background-color: #d9d9d9;");
+            } else if (dataBarang.size() == 4) {
+                nameBrng1.setText(dataNamaBarang.get(0));
+                nameBrng2.setText(dataNamaBarang.get(1));
+                nameBrng3.setText(dataNamaBarang.get(2));
+                nameBrng4.setText(dataNamaBarang.get(3));
+
+                hargaBrng1.setText(dataHargaBarang.get(0));
+                hargaBrng2.setText(dataHargaBarang.get(1));
+                hargaBrng3.setText(dataHargaBarang.get(2));
+                hargaBrng4.setText(dataHargaBarang.get(3));
+
+                File a = new File(dataBarang.get(0).getImage());
+                FileInputStream file1 = new FileInputStream(a);
+                Image image1 = new Image(file1);
+                imgBrng1.setImage(image1);
+
+                File b = new File(dataBarang.get(1).getImage());
+                FileInputStream file2 = new FileInputStream(b);
+                Image image2 = new Image(file2);
+                imgBrng2.setImage(image2);
+
+                File c = new File(dataBarang.get(2).getImage());
+                FileInputStream file3 = new FileInputStream(c);
+                Image image3 = new Image(file3);
+                imgBrng3.setImage(image3);
+
+                File d = new File(dataBarang.get(3).getImage());
+                FileInputStream file4 = new FileInputStream(d);
+                Image image4 = new Image(file4);
+                imgBrng4.setImage(image4);
+                paneBrng1.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng2.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng3.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng4.setStyle("-fx-background-color: #d9d9d9;");
+            } else if (dataBarang.size() >= 5) {
+                nameBrng1.setText(dataNamaBarang.get(0));
+                nameBrng2.setText(dataNamaBarang.get(1));
+                nameBrng3.setText(dataNamaBarang.get(2));
+                nameBrng4.setText(dataNamaBarang.get(3));
+                nameBrng5.setText(dataNamaBarang.get(4));
+
+                hargaBrng1.setText(dataHargaBarang.get(0));
+                hargaBrng2.setText(dataHargaBarang.get(1));
+                hargaBrng3.setText(dataHargaBarang.get(2));
+                hargaBrng4.setText(dataHargaBarang.get(3));
+                hargaBrng5.setText(dataHargaBarang.get(4));
+
+                File a = new File(dataBarang.get(0).getImage());
+                FileInputStream file1 = new FileInputStream(a);
+                Image image1 = new Image(file1);
+                imgBrng1.setImage(image1);
+
+                File b = new File(dataBarang.get(1).getImage());
+                FileInputStream file2 = new FileInputStream(b);
+                Image image2 = new Image(file2);
+                imgBrng2.setImage(image2);
+
+                File c = new File(dataBarang.get(2).getImage());
+                FileInputStream file3 = new FileInputStream(c);
+                Image image3 = new Image(file3);
+                imgBrng3.setImage(image3);
+
+                File d = new File(dataBarang.get(3).getImage());
+                FileInputStream file4 = new FileInputStream(d);
+                Image image4 = new Image(file4);
+                imgBrng4.setImage(image4);
+
+                File e = new File(dataBarang.get(4).getImage());
+                FileInputStream file5 = new FileInputStream(e);
+                Image image5 = new Image(file5);
+                imgBrng5.setImage(image5);
+                
+                paneBrng1.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng2.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng3.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng4.setStyle("-fx-background-color: #d9d9d9;");
+                paneBrng5.setStyle("-fx-background-color: #d9d9d9;");
+            }
+
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -267,7 +365,7 @@ public class ControllerHome implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
             info.email = email;
-            info.iD = 1;
+            info.iD = dataBarang.get(0).getID();
 
             // loader.setController(info);
             root = loader.load();
@@ -291,7 +389,8 @@ public class ControllerHome implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
             info.email = email;
-            info.iD = 2;
+            info.iD = dataBarang.get(1).getID();
+            ;
             // loader.setController(info);
             root = loader.load();
             Scene scene = new Scene(root);
@@ -315,7 +414,8 @@ public class ControllerHome implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
             info.email = email;
-            info.iD = 3;
+            info.iD = dataBarang.get(2).getID();
+            ;
             // loader.setController(info);
             root = loader.load();
             Scene scene = new Scene(root);
@@ -339,7 +439,8 @@ public class ControllerHome implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
             info.email = email;
-            info.iD = 4;
+            info.iD = dataBarang.get(3).getID();
+            ;
             // loader.setController(info);
             root = loader.load();
             Scene scene = new Scene(root);
@@ -363,7 +464,8 @@ public class ControllerHome implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
             ControllerInfoBarang info = new ControllerInfoBarang();
             info.email = email;
-            info.iD = 5;
+            info.iD = dataBarang.get(4).getID();
+            ;
             // loader.setController(info);
             root = loader.load();
             Scene scene = new Scene(root);

@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #cbcbcb;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerInfoBarang">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: d9d9d9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerInfoBarang">
    <children>
       <ImageView fitHeight="36.0" fitWidth="208.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -34,17 +34,20 @@
          <font>
             <Font name="Helvetica" size="18.0" />
          </font></Label>
-      <Label layoutX="572.0" layoutY="322.0" text="Deskripsi produk">
+      <Label layoutX="89.0" layoutY="425.0" text="Deskripsi produk">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font></Label>
-      <Label fx:id="lblDeskripsi" layoutX="581.0" layoutY="361.0" prefHeight="156.0" prefWidth="629.0" text="Label" />
+      <Label fx:id="lblDeskripsi" layoutX="89.0" layoutY="452.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="1087.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="78.0" layoutY="622.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
       <Button fx:id="btnNego" layoutX="648.0" layoutY="642.0" mnemonicParsing="false" onAction="#Nego" prefHeight="43.0" prefWidth="610.0" style="-fx-border-color: ff0000; -fx-background-color: white;" text="NEGO" textFill="RED">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btnBeli" layoutX="29.0" layoutY="642.0" mnemonicParsing="false" onAction="#Beli" prefHeight="43.0" prefWidth="1229.0" style="-fx-background-color: #ff0000;" text="Beli Sekarang" textFill="WHITE">
+      <Button fx:id="btnBeli" layoutX="29.0" layoutY="642.0" mnemonicParsing="false" onAction="#Beli" prefHeight="43.0" prefWidth="610.0" style="-fx-background-color: #ff0000;" text="Beli Sekarang" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
@@ -64,6 +67,6 @@
          <font>
             <Font name="Helvetica" size="18.0" />
          </font></Label>
-      <Button fx:id="btnBack" layoutX="195.0" layoutY="20.0" mnemonicParsing="false" onAction="#BacktoHome" style="-fx-background-color: white;" text="Back" />
+      <Button fx:id="btnBack" layoutX="195.0" layoutY="20.0" mnemonicParsing="false" onAction="#BacktoHome" prefHeight="27.0" prefWidth="89.0" style="-fx-background-color: white; -fx-border-color: orange;" text="Back" />
    </children>
 </AnchorPane>

@@ -22,7 +22,7 @@ public class ControllerMetodePembayaran implements Initializable {
     private Button btnBack;
 
     @FXML
-    private Button btnBayar;
+    private Button btnBuatPesanan;
 
     @FXML
     private CheckBox checkSaldo;
@@ -52,8 +52,11 @@ public class ControllerMetodePembayaran implements Initializable {
     public static String alamat;
 
     CSVWriterPembelian writer = new CSVWriterPembelian();
+    CSVWriterKonfirmasi writerKonfirmasi = new CSVWriterKonfirmasi();
     ArrayList<ModelPembelian> dataPembelian = new CSVReaderPembelian()
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
+    ArrayList<ModelKonfirmasiPembelian> dataKonfirmasi = new CSVReaderKonfirmasi()
+            .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataKonfirmasi.csv");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,6 +68,7 @@ public class ControllerMetodePembayaran implements Initializable {
 
     public static String email;
     public static int stokSisa;
+    public static int hargaNego;
     String iniEmail;
 
     String metodePembayaran;
@@ -74,11 +78,11 @@ public class ControllerMetodePembayaran implements Initializable {
             .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
 
     @FXML
-    void Bayar(ActionEvent event) {
+    void buatPesanan(ActionEvent event) {
         Parent root;
         String EMAIL = email;
         iniEmail = email;
-        String id = Integer.toString(dataPembelian.size() + 1);
+        // String id = Integer.toString(dataPembelian.size() + 1);
         String name = nama;
         String biaya = totalBayar;
         String jumlah = Integer.toString(stokBeli);
@@ -95,66 +99,67 @@ public class ControllerMetodePembayaran implements Initializable {
             }
         }
 
-        for (int i = 0; i < dataBarang.size(); i++) {
-            String namaBarang = dataBarang.get(i).getNamaBarang();
+        // for (int i = 0; i < dataBarang.size(); i++) {
+        // String namaBarang = dataBarang.get(i).getNamaBarang();
 
-            if (namaBarang.equals(name)) {
-                stokBarang = Integer.parseInt(dataBarang.get(i).getStok());
-            }
-        }
+        // if (namaBarang.equals(name)) {
+        // stokBarang = Integer.parseInt(dataBarang.get(i).getStok());
+        // }
+        // }
 
         boolean saldo = checkSaldo.isSelected();
         boolean COD = checkCOD.isSelected();
         CSVWriter writerUser = new CSVWriter();
         CSVWriterBarang writerBarang = new CSVWriterBarang();
+        ArrayList<ModelKonfirmasiPembelian> dataKonfirmasiPembelian = new CSVReaderKonfirmasi()
+                .readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataKonfirmasi.csv");
+        String hargaAsli = "";
+        String emailPenjual = "";
+        String hargaNegoS = String.valueOf(hargaNego);
+
+        for (int i = 0; i < dataBarang.size(); i++) {
+            if (name.equals(dataBarang.get(i).getNamaBarang())) {
+                hargaAsli = dataBarang.get(i).getHarga();
+                emailPenjual = dataBarang.get(i).getEmailPenjual();
+            }
+        }
 
         if (saldo) {
             metodePembayaran = "Saldo";
 
             if (uang > totalBiaya) {
-                int kembalian = uang - totalBiaya;
-                stokSisa = stokBarang - stokBeli;
-
                 for (int i = 0; i < dataUser.size(); i++) {
                     String eMAIL = dataUser.get(i).getEmail();
 
                     if (eMAIL.equals(email)) {
-                        dataUser.get(i).setSaldo(kembalian);
-                        writerUser.simpanData(dataUser,
-                                "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataLogin.csv");
+                        dataKonfirmasiPembelian.add(
+                                new ModelKonfirmasiPembelian(EMAIL, name, hargaAsli, hargaNegoS, stokBeli, totalBiaya,
+                                        metodePembayaran, emailPenjual));
+                        writerKonfirmasi.simpanData(dataKonfirmasiPembelian,
+                                "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataKonfirmasi.csv");
 
-                        for (int j = 0; j < dataBarang.size(); j++) {
-                            String namaBarang = dataBarang.get(j).getNamaBarang();
-                            if (namaBarang.equals(name)) {
-                                dataBarang.get(j).setStok(String.valueOf(stokSisa));
-                                writerBarang.simpanData(dataBarang,
-                                        "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataBarang.csv");
-                            }
-                        }
+                    }
 
-                        dataPembelian.add(new ModelPembelian(EMAIL, id, name, biaya, jumlah, asal, metodePembayaran));
-                        writer.simpanData(dataPembelian,
-                                "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
-                        try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanStrukPembelian.fxml"));
-                            ControllerStrukPembelian struk = new ControllerStrukPembelian();
-                            struk.stokSisa = stokSisa;
-                            struk.EMAIL = iniEmail;
-                            struk.stokFinal = stokBeli;
-                            struk.hargaTotal = hargaTotal;
-                            struk.iD = iD;
-                            root = loader.load();
-                            Scene scene = new Scene(root);
-                            Stage stage = new Stage();
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanStrukPembelian.fxml"));
+                        ControllerStrukPembelian struk = new ControllerStrukPembelian();
+                        struk.stokSisa = stokSisa;
+                        struk.EMAIL = iniEmail;
+                        struk.stokFinal = stokBeli;
+                        struk.hargaTotal = String.valueOf(totalBiaya);
+                        struk.iD = iD;
+                        root = loader.load();
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
 
-                            stage.setScene(scene);
-                            stage.show();
+                        stage.setScene(scene);
+                        stage.show();
 
-                            nonBtnClick(event);
-                        } catch (IOException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
+                        nonBtnClick(event);
+                        break;
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
                 }
             } else {
@@ -164,12 +169,24 @@ public class ControllerMetodePembayaran implements Initializable {
                 alert.setContentText("Uang tidak cukup, isi kembali saldo anda");
                 alert.showAndWait();
             }
-
         } else if (COD) {
             metodePembayaran = "COD";
-            dataPembelian.add(new ModelPembelian(EMAIL, id, name, biaya, jumlah, asal, metodePembayaran));
-            writer.simpanData(dataPembelian,
-                    "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
+            for (int index = 0; index < dataUser.size(); index++) {
+                String emailString = dataUser.get(index).getEmail();
+                if (emailString.equals(email)) {
+                    dataKonfirmasiPembelian
+                            .add(new ModelKonfirmasiPembelian(emailString, name, hargaAsli, hargaNegoS, stokBeli,
+                                    totalBiaya, metodePembayaran, emailPenjual));
+                    writerKonfirmasi.simpanData(dataKonfirmasiPembelian,
+                            "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataKonfirmasi.csv");
+                }
+
+            }
+
+            // dataPembelian.add(new ModelPembelian(EMAIL, id, name, biaya, jumlah, asal,
+            // metodePembayaran));
+            // writer.simpanData(dataPembelian,
+            // "C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataPembelian.csv");
             try {
                 System.out.println(iniEmail);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanStrukPembelian.fxml"));
@@ -198,6 +215,7 @@ public class ControllerMetodePembayaran implements Initializable {
             alert.setContentText("Pilih salah satu dari metode pembayaran");
             alert.showAndWait();
         }
+
     }
 
     @FXML

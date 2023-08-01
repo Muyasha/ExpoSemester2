@@ -26,7 +26,7 @@ public class ControllerNegoBarang implements Initializable {
     private Button btnAjukan;
 
     @FXML
-    private Button btnBeli;
+    private Button btntoInformasiBarang;
 
     @FXML
     private Button btnHome;
@@ -102,23 +102,41 @@ public class ControllerNegoBarang implements Initializable {
     public ControllerNegoBarang() {
 
     }
-    CSVWriterNego writerNego = new CSVWriterNego();
-    ArrayList<ModelNego> dataNego = new CSVReaderNego().readCSVFile("C://Kuliah//Semester 2//FPA//THRIFTSHOP//Aplikasi//src//dataNego.csv");
+
+    CSVWriterKonfirmasi writerNego = new CSVWriterKonfirmasi();
+
     @FXML
     void AjukanNego(ActionEvent event) {
-        String hargaNegoS= tfNego.getText();
-        int hargaNegoInt= Integer.parseInt(hargaNegoS);
-
-    }
-
-    @FXML
-    void Beli(ActionEvent event) {
+        String hargaNegoS = tfNego.getText();
+        int hargaNegoInt = Integer.parseInt(hargaNegoS);
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanBeli.fxml"));
             ControllerBeli beli = new ControllerBeli();
             beli.email = email;
             beli.iD = iD;
+            beli.hargaNego = hargaNegoInt;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            nonBtnClick(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void toInformasiBarang(ActionEvent event) {
+        Parent root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TampilanInfoBarang.fxml"));
+            ControllerInfoBarang.email = email;
+            ControllerInfoBarang.iD = iD;
             root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
